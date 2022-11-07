@@ -3,16 +3,21 @@
 class DeviseCreateGenres < ActiveRecord::Migration[6.1]
   def change
     create_table :genres do |t|
+      t.string :name
+      t.timestamps
+    end
+  end
+end
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      # t.string :email,              null: false, default: ""
+      # t.string :encrypted_password, null: false, default: ""
 
       ## Recoverable
-      t.string   :reset_password_token
-      t.datetime :reset_password_sent_at
+      # t.string   :reset_password_token
+      # t.datetime :reset_password_sent_at
 
-      ## Rememberable
-      t.datetime :remember_created_at
+      # ## Rememberable
+      # t.datetime :remember_created_at
 
       ## Trackable
       # t.integer  :sign_in_count, default: 0, null: false
@@ -31,15 +36,14 @@ class DeviseCreateGenres < ActiveRecord::Migration[6.1]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-      t.string :name
+    #   t.string :name
 
 
-      t.timestamps null: false
-    end
+    #   t.timestamps null: false
 
-    add_index :genres, :email,                unique: true
-    add_index :genres, :reset_password_token, unique: true
+
+    # add_index :genres, :email,                unique: true
+    # add_index :genres, :reset_password_token, unique: true
     # add_index :genres, :confirmation_token,   unique: true
     # add_index :genres, :unlock_token,         unique: true
-  end
-end
+

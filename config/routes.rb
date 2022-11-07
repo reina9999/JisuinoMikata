@@ -32,7 +32,14 @@ namespace :admin do
   #get :"customers/invalid" => "customers#invalid"
 
   resources :customers, only:[:index]
+  resources :genres, only:[:index,:create,:edit,:update]
+
+end
+
+devise_scope :customer do
+  post 'customers/guest_sign_in',to: 'public/sessions#guest_sign_in'
 
 end
 end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.htmlend

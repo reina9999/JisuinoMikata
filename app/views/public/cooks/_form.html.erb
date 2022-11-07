@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-8 offset-2">
+    <%= form_with model: @cook,local:true do |f| %>
+    <table class="taable table-borderless">
+      <tbody>
+        <tr>
+          <td style="width: 200px">料理画像</td>
+          <td><%= f.file_field :image,accept: "image/*" %></td>
+        </tr>
+        <tr>
+          <td style="width: 200px">料理名</td>
+          <td><%= f.text_field :name,placeholder: "料理名",class: "w-100" %></td>
+        </tr>
+        <tr>
+          <td style="width: 200px">所要時間</td>
+          <td><%= f.text_field :time,placeholder: "所要時間（分）",class: "w-100" %></td>
+        </tr>
+        <tr>
+          <td style="width: 200px">食材</td>
+          <td><%= f.text_area :foods,placeholder: "食材",class: "w-100" %></td>
+        </tr>
+        <tr>
+          <td style="width: 200px">調理法</td>
+          <td><%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %></td>
+        </tr>
+        
+      </tbody>
+    </table>
+    <br>
+    <div class="text-center">
+      <%= f.submit "登録", class: "btn btn-success" %>
+    </div>
+    <% end %>
+    <div class="col-4"></div>
+  </div>
+</div>
