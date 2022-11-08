@@ -11,13 +11,13 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  devise_for :genres
-  devise_for :cooks
+
 
 scope module: :public do
   root :to  => "homes#top"
   get "homes/about" => "homes#about"
   get "customers/confirm" => "customers#confirm"
+  patch "customers/withdraw" => "customers#withdraw"
   #get "searches" => "public#searches"
 
   resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy]

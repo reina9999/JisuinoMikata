@@ -1,1 +1,27 @@
-<h1>投稿一覧</h1>
+<div class="container">
+  <div class="row my-5">
+    <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
+      <h4 class="m-0">投稿一覧</h4>
+          <% @cooks.each do |cook| %>
+          <table class="col-2 table table-borderless d-inline-flex m-4 p-0">
+            <tr>
+              <td><%= image_tag cook.get_image, size: "200x150" %></td>
+            </tr>
+            <tr>
+              <td><%= link_to cook.name, cook_path(cook.id) %></td>
+            </tr>
+            <tr>
+              <td><%= link_to cook.required_time, cook_path(cook.id) %></td>
+            </tr>
+            <tr>
+              <td><%= link_to cook.foods, cook_path(cook.id) %></td>
+            </tr>
+            <tr>
+              <td><%= link_to cook.recipe, cook_path(cook.id) %></td>
+            </tr>
+          </table>
+          <% end %>
+        </div>
+      
+  </div>
+</div>
