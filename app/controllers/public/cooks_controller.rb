@@ -7,6 +7,10 @@ class Public::CooksController < ApplicationController
   def index
     @cooks = Cook.all.page(params[:page]).per(10)
   end
+  
+  def show
+    @cook = Cook.find(params[:id])
+  end
 
   def create
     @cook = Cook.new(cook_params)
