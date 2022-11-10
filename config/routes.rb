@@ -15,6 +15,7 @@ Rails.application.routes.draw do
 
 scope module: :public do
   root :to  => "homes#top"
+  
   get "homes/about" => "homes#about"
   get "customers/confirm" => "customers#confirm"
   patch "customers/withdraw" => "customers#withdraw"
@@ -22,9 +23,9 @@ scope module: :public do
 
   resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy]
   resources :cook_comments, only:[:create,:destroy]
-  resources :bookmarks, only:[:create,:destroy]
+  resources :bookmarks, only:[:index,:create,:destroy]
   resources :searches, only:[:search]
-  resource :customers, only:[:show,:edit,:update]
+  resources :customers, only:[:show,:edit,:update]
 end
 namespace :admin do
   root :to => "homes#top"#訂正要？

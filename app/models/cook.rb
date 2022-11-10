@@ -3,12 +3,17 @@ class Cook < ApplicationRecord
   has_one_attached :image
 
   belongs_to :customer
+  has_many :bookmarks,dependent: :destroy
   validates :name, presence: true
   validates :required_time, presence: true
   validates :foods, presence: true
   validates :recipe, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  
+  def bookmarked_by?(customer)
+    bookmarks.exists?(customer_id: customer.id)
+  end
 
 
   def get_image

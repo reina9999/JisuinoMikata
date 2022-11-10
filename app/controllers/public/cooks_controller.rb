@@ -6,6 +6,8 @@ class Public::CooksController < ApplicationController
 
   def index
     @cooks = Cook.all.page(params[:page]).per(10)
+    # @cook = Cook.find(params[:id])
+    # @customer = @cook.customer
   end
   
   def show
@@ -23,14 +25,14 @@ class Public::CooksController < ApplicationController
     end
   end
 
-  # def update
-  #   @cook = Cook.find(params[:id])
-  #   if @cook.update(cook_params)
-  #     redirect_to cooks_path
-  #   else
-  #     render :edit
-  #   end
-  # end
+  def update
+    @cook = Cook.find(params[:id])
+    if @cook.update(cook_params)
+      redirect_to cooks_path
+    else
+      render :edit
+    end
+  end
 
   private
   def cook_params

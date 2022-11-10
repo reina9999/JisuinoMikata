@@ -10,6 +10,11 @@
     <div class="col-6">
       <table class="table table-borderless d-inline-flex mx-3 p-0">
         <tr>
+          <td id="bookmark_buttons_<%= @cook.id %>">
+          <%= render "public/bookmarks/bookmarks", cook: @cook %>
+          </td>
+        </tr>
+        <tr>
            <td><h3><%= @cook.name %></h3></td>
         </tr>
         <tr>
@@ -20,6 +25,9 @@
         </tr>
         <tr>
            <td><h5><%= @cook.recipe %></h5></td>
+        </tr>
+        <tr>
+          <td><%= link_to "編集する", edit_cook_path(@cook) %></td>
         </tr>
       </table>
     </div>
