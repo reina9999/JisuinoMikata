@@ -4,12 +4,12 @@
       <h4 class="m-0">会員情報編集</h4>
 
     <%= form_with model: @customer, url: edit_customer_path(@customer.id), id: "new_customer", class: "new_customer" do |f| %>
-    
+
       <!--<%#= render "public/shared/error_messages", resource: resource %>-->
       <br>
       <div class="form-group">
         <%= f.label :name,"名前" %>
-        <%= f.text_field :name,placeholder: "自炊花子",class: "w-100" %>
+        <%= f.text_field :name, placeholder: "自炊花子",class: "w-100" %>
       </div>
       <div class="form-group">
         <%= f.label :password,"パスワード" %>

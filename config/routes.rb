@@ -21,11 +21,18 @@ scope module: :public do
   patch "customers/withdraw" => "customers#withdraw"
   #get "searches" => "public#searches"
 
-  resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy]
+  resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy] do
+
+     resources :bookmarks, only:[:create,:destroy]
+  end
   resources :cook_comments, only:[:create,:destroy]
-  resources :bookmarks, only:[:index,:create,:destroy]
+ 
   resources :searches, only:[:search]
-  resources :customers, only:[:show,:edit,:update]
+  resources :customers, only:[:show,:edit,:update] do
+     member do 
+       get :bookmarks
+     end
+   end
 end
 namespace :admin do
   root :to => "homes#top"#訂正要？

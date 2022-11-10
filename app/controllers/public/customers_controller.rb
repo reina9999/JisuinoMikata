@@ -16,11 +16,20 @@ class Public::CustomersController < ApplicationController
   end
 
   def confirm
-    @customer = Customer.find(current_customer.id)
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
-    @customer.update(is_deleted: true)
+  end
+  
+  
+  def withdraw
+   
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    current_customer.update(is_deleted: true)
     reset_session
     redirect_to root_path
+  end
+  
+  def bookmarks
+    @cooks = current_customer.cooks
   end
 
 

@@ -1,7 +1,13 @@
+
 <% if cook.bookmarked_by?(current_customer) %>
-    <%= link_to bookmark_path(cook.id), method: :delete,remote: true,class: "fas fa-bookmark" do %>
+
+    <%= link_to cook_bookmark_path(cook.id, current_customer.bookmarks.find_by(cook_id: cook.id).id), method: :delete,remote: true  do %>
+      <i class="fas fa-bookmark"></i>
     <% end %>
   <% else %>
-    <%= link_to bookmarks_path(cook.id), method: :post,remote: true,class: "fal fa-bookmark" do %>
+    <%= link_to cook_bookmarks_path(cook.id) , method: :post,remote: true do %>
+    <i class="far fa-bookmark"></i>
     <% end %>
 <% end %>
+
+

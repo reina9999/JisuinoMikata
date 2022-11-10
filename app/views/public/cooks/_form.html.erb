@@ -29,7 +29,10 @@
       </table>
       <br>
       <div class="text-center">
+        <% if cook.customer == current_customer %>
         <%= f.submit "編集を保存", class: "btn btn-success" %>
+        <%= f.submit "削除", class: "btn btn-success", method: :delete %>
+        <% else %>
       </div>
     <% end %>
   <% else %>
