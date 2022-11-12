@@ -14,9 +14,8 @@
         <li><%= link_to "ログアウト",destroy_customer_session_path, method: :delete,class: 'nav-link text-dark' %></li>
 
       <% elsif admin_signed_in? %>
-        <li><%= link_to "投稿一覧",cooks_path,class: 'nav-link text-dark' %></li>
-        <li><%= link_to "投稿詳細",new_cook_path,class: 'nav-link text-dark' %></li>
-        <li><%= link_to "会員一覧",admin_root_path,class: 'nav-link text-dark' %></li>
+        <li><%= link_to "投稿一覧",admin_root_path,class: 'nav-link text-dark' %></li>
+        <li><%= link_to "会員一覧",admin_customers_path,class: 'nav-link text-dark' %></li>
         <li><%= link_to "ログアウト",destroy_admin_session_path, method: :delete,class: 'nav-link text-dark' %></li>
 
       <% else %>

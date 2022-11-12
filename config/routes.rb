@@ -41,7 +41,7 @@ namespace :admin do
 
   #get :"customers/invalid" => "customers#invalid"
 
-  resources :customers, only:[:index]
+  resources :customers, only:[:index,:show,:edit,:update]
   resources :genres, only:[:index,:create,:edit,:update]
 
 end

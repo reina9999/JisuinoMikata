@@ -5,6 +5,7 @@ class Public::CookCommentsController < ApplicationController
     comment.cook_id = @cook.id
     comment.save
     @cook_comment = CookComment.new
+    
   end 
   
   def destroy

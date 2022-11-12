@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8">
+    <br>
+    <h3><%= @customer.name %>さんの会員詳細</h3>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td style="width: 150px">会員ID</td>
+          <td><%= @customer.id %></td>
+        </tr>
+        <tr>
+          <td style="width: 150px">名前</td>
+          <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td style="width: 150px">メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <td style="width: 150px">会員ステータス</td>
+          <td>
+            <% if @customer.is_deleted %>
+             <p class="text-muted font-weight-bold">無効</p>
+            <% else %>
+            <P class="text-success font-weight-bold">有効</P>
+            <% end %>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-5 offset-1">
+    <%= link_to "編集する", edit_admin_customer_path(@customer.id), class: "btn btn-success mx-5" %>
+    </div>
+  </div>
+</div>

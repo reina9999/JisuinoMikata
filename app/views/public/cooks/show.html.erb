@@ -33,7 +33,7 @@
           <td><%= link_to "編集する", edit_cook_path(@cook) %></td>
         </tr>
         <tr>
-          <td><div id="comment-area"><%= render "public/cook_comments/comment",cooks: @cook,cook_comment: @cook_comment %></div></td>
+          <td><div id="comments-area"><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div></td>
         </tr>
       </table>
     </div>
