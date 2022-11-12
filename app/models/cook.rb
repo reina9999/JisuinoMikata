@@ -4,13 +4,14 @@ class Cook < ApplicationRecord
 
   belongs_to :customer
   has_many :bookmarks,dependent: :destroy
+  has_many :cook_comments, dependent: :destroy
   validates :name, presence: true
   validates :required_time, presence: true
   validates :foods, presence: true
   validates :recipe, presence: true
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
-  
+
   def bookmarked_by?(customer)
     bookmarks.exists?(customer_id: customer.id)
   end

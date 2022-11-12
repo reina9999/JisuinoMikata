@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
 scope module: :public do
   root :to  => "homes#top"
-  
+
   get "homes/about" => "homes#about"
   get "customers/confirm" => "customers#confirm"
   patch "customers/withdraw" => "customers#withdraw"
@@ -23,13 +23,15 @@ scope module: :public do
 
   resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy] do
 
-     resources :bookmarks, only:[:create,:destroy]
+    resources :bookmarks, only:[:create,:destroy]
+    resources :cook_comments, only:[:create,:destroy]
+    resources :menus, only:[:new,:create]
   end
-  resources :cook_comments, only:[:create,:destroy]
- 
+
+
   resources :searches, only:[:search]
   resources :customers, only:[:show,:edit,:update] do
-     member do 
+     member do
        get :bookmarks
      end
    end

@@ -3,7 +3,8 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-
+    @cook=Cook.new
+    @cook_comment = CookComment.new
   end
 
   def edit
@@ -18,16 +19,16 @@ class Public::CustomersController < ApplicationController
   def confirm
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
   end
-  
-  
+
+
   def withdraw
-   
+
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     current_customer.update(is_deleted: true)
     reset_session
     redirect_to root_path
   end
-  
+
   def bookmarks
     @cooks = current_customer.cooks
   end

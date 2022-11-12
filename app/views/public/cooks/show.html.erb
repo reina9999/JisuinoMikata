@@ -15,19 +15,25 @@
           </td>
         </tr>
         <tr>
-           <td><h3><%= @cook.name %></h3></td>
+           <td>料理名:<%= @cook.name %></td>
         </tr>
         <tr>
-           <td><h5><%= @cook.required_time %></h5></td>
+           <td>調理時間:<%= @cook.required_time %></td>
         </tr>
         <tr>
-           <td><h5><%= @cook.foods %></h5></td>
+           <td>食材:<%= @cook.foods %></td>
         </tr>
         <tr>
-           <td><h5><%= @cook.recipe %></h5></td>
+           <td>調理法:<%= @cook.recipe %></td>
+        </tr>
+        <tr>
+            <td>投稿者:<%= @cook.customer.name %></td>
         </tr>
         <tr>
           <td><%= link_to "編集する", edit_cook_path(@cook) %></td>
+        </tr>
+        <tr>
+          <td><div id="comment-area"><%= render "public/cook_comments/comment",cooks: @cook,cook_comment: @cook_comment %></div></td>
         </tr>
       </table>
     </div>

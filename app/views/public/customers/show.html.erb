@@ -5,9 +5,11 @@
         <h4 class="m-0">マイページ</h4>
       </div>
     </div>
+    <%= link_to "bookmark",bookmarks_customer_path(current_customer),class: "btn btn-outline-secondary"%>
+    <%= link_to "献立作成",new_cook_menu_path(current_customer),class: "btn btn-outline-secondary"%>
   </div>
-  
-  <%= link_to "bookmark",  bookmarks_customer_path(current_customer)%>
+
+
 
   <div class="row">
     <div class="col-6">
