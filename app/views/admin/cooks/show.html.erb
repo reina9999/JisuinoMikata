@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row m-5">
+    <div class="col-2">
+      <table class="table table-bordered">
+    </div>
+    <div class="col-4 text-center">
+      <h3 class="d-inline-flex px-0"><%= image_tag @cook.get_image, size: "300x250" %></h3>
+    </div>
+
+    <div class="col-6">
+      <table class="table table-borderless d-inline-flex mx-3 p-0">
+
+        <tr>
+           <td>料理名:<%= @cook.name %></td>
+        </tr>
+        <tr>
+           <td>調理時間:<%= @cook.required_time %></td>
+        </tr>
+        <tr>
+           <td>食材:<%= @cook.foods %></td>
+        </tr>
+        <tr>
+           <td>調理法:<%= @cook.recipe %></td>
+        </tr>
+        <tr>
+            <td>投稿者:<%= @cook.customer.name %></td>
+        </tr>
+
+        <tr>
+          <td><%= link_to "編集する", edit_cook_path(@cook) %></td>
+        </tr>
+
+        <!--<tr>-->
+        <!--<td>コメント:<%#= @cook_comment.comment %></td>-->
+        <!--<td><%#= link_to "削除", admin_cook_path(@cook), method: :delete,remote: true,class: "btn btn-danger pull-right" %></td>-->
+        <!--<td>投稿者:<%#= @cook.customer.name %></td>-->
+        <!--</tr>-->
+
+
+      </table>
+
+      <% if @cook_comment.present? %>
+      <% @cook_comment.each do |comment| %>
+      <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %><%= comment.comment %>
+      <%= link_to "削除", cook_cook_comment_path(@cook, comment), method: :delete,remote: true,class: "btn btn-danger pull-right" %>
+      <%= @cook.customer.name %>
+      <br>
+      <% end %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

@@ -23,6 +23,7 @@ class Public::CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
     if @cook.save
+      @cook.save_tag(params[:cook][:tag])
       redirect_to cooks_path,notice: "You have created cook successfully."
     else
       @cooks = Cook.all
