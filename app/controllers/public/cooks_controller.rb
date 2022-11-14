@@ -23,7 +23,7 @@ class Public::CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
     if @cook.save
-      @cook.save_tag(params[:cook][:tag])
+      # @cook.save_tag(params[:cook][:tag])
       redirect_to cooks_path,notice: "You have created cook successfully."
     else
       @cooks = Cook.all
@@ -34,11 +34,18 @@ class Public::CooksController < ApplicationController
   def update
     @cook = Cook.find(params[:id])
     if @cook.update(cook_params)
-      redirect_to cooks_path
+      redirect_to cook_path(@cook)
     else
       render :edit
     end
   end
+
+  def destroy
+    @cook = Cook.find(params[:id])
+    @cook.destroy
+    redirect_to cooks_path
+  end
+
 
   private
   def cook_params

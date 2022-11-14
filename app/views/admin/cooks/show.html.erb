@@ -23,11 +23,11 @@
            <td>調理法:<%= @cook.recipe %></td>
         </tr>
         <tr>
-            <td>投稿者:<%= @cook.customer.name %></td>
+            <td>投稿者:<%= link_to @cook.customer.name,admin_customer_path(@cook.customer) %><%#= @cook.customer.name %></td>
         </tr>
 
         <tr>
-          <td><%= link_to "編集する", edit_cook_path(@cook) %></td>
+          <td><%= link_to "編集する", edit_cook_path(@cook) %></td>#削除に変更？？
         </tr>
 
         <!--<tr>-->
@@ -43,9 +43,11 @@
       <% @cook_comment.each do |comment| %>
       <%= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %><%= comment.comment %>
       <%= link_to "削除", cook_cook_comment_path(@cook, comment), method: :delete,remote: true,class: "btn btn-danger pull-right" %>
-      <%= @cook.customer.name %>
+      コメント投稿者:<%#= @cook.customer.name %>
+      <%= link_to comment.customer.name,admin_customer_path(comment.customer) %>
       <br>
       <% end %>
+
       <% end %>
 
 

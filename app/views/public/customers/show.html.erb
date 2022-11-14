@@ -28,6 +28,21 @@
 
   <div class="row">
     <h3 class="col-8">投稿一覧</h3>
+          <% @cooks.each do |cook| %>
+          <table class="col-2 table table-borderless table table-sm d-inline-flex m-4 p-0">
+
+            <tr>
+              <td><%= image_tag cook.get_image, size: "200x150" %></td>
+            </tr>
+            <tr>
+              <td><%= link_to cook.name, cook_path(cook.id) %></td>
+            </tr>
+            <tr>
+              <td>調理時間:<%= cook.required_time %>分</td>
+            </tr>
+
+          </table>
+          <% end %>
 
     </div>
   </div>

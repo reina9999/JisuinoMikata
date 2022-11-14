@@ -5,6 +5,8 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @cook=Cook.new
     @cook_comment = CookComment.new
+    @cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(5)
+    # binding.irb
   end
 
   def edit
@@ -13,6 +15,15 @@ class Public::CustomersController < ApplicationController
       @customer = Customer.find(params[:id])
     else
       redirect_to customer_path(@customer.id)
+    end
+  end
+
+  def update
+     @customer = Customer.find(params[:id])
+    if @ccustomer.update(customer_params)
+      redirect_to customer_path(@customer)
+    else
+      render :edit
     end
   end
 
@@ -30,7 +41,12 @@ class Public::CustomersController < ApplicationController
   end
 
   def bookmarks
-    @cooks = current_customer.cooks
+    # binding.irb
+    # @bookmarks = current_customer.bookmarks
+
+    # bookmarkIds = Customer.find(params[:id]).bookmarks.pluck(:cook_id)
+    bookmarkIds = current_customer.bookmarks.pluck(:cook_id)
+    @cooks = Cook.find(bookmarkIds)
   end
 
 

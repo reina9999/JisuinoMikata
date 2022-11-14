@@ -2,68 +2,48 @@
   <div class="col-8 offset-2">
 
   <% unless params["action"] == "new" %>
-    <%= form_with model: cook, url: {controller: 'cooks', action: 'update'} do |f| %>
-      <table class="taable table-borderless">
-        <tbody>
-          <tr>
-            <td style="width: 200px">料理画像</td>
-            <td><%= f.file_field :image,accept: "image/*" %></td>
-          </tr>
-          <tr>
-            <td style="width: 200px">料理名</td>
-            <td><%= f.text_field :name,placeholder: "料理名",class: "w-100" %></td>
-          </tr>
-          <tr>
-            <td style="width: 200px">所要時間</td>
-            <td><%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %></td>
-          </tr>
-          <tr>
-            <td style="width: 200px">食材</td>
-            <td><%= f.text_area :foods,placeholder: "食材",class: "w-100" %></td>
-          </tr>
-          <tr>
-            <td style="width: 200px">調理法</td>
-            <td><%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %></td>
-          </tr>
-        </tbody>
-      </table>
+    <%= form_with model: cook, url: cook_path(cook), method: :patch do |f| %>
+      <div class="taable table-borderless">
+        <div style="width: 200px">料理画像</div>
+        <%= f.file_field :image,accept: "image/*" %>
+        <div style="width: 200px">料理名</div>
+        <%= f.text_field :name,placeholder: "料理名",class: "w-100" %>
+        <div style="width: 200px">所要時間</div>
+        <%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %>
+        <div style="width: 200px">食材</div>
+        <%= f.text_area :foods,placeholder: "食材",class: "w-100" %>
+        <div style="width: 200px">調理法</div>
+        <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
+      </div>
       <br>
       <div class="text-center">
-        <%= link_to 'Edit', edit_cook_path(@cook), class: "btn btn-sm btn-success" %>
+        <% if @cook.customer == current_customer %>
+        <%= f.submit "Edit", class: "btn btn-success" %>
+        <!--<%#= link_to 'Edit', edit_cook_path(@cook), class: "btn btn-sm btn-success" %>-->
         <%= link_to "Destroy",cook_path, method: :delete,"data-confirm" => "Are you sure?",class: "btn btn-sm btn-danger" %>
+        <% end %>
       </div>
     <% end %>
   <% else %>
 
     <%= form_with model: @cook,local:true do |f| %>
-    <table class="taable table-borderless">
-      <tbody>
-        <tr>
-          <td style="width: 200px">料理画像</td>
-          <td><%= f.file_field :image,accept: "image/*" %></td>
-        </tr>
-        <tr>
-          <td style="width: 200px">料理名</td>
-          <td><%= f.text_field :name,placeholder: "料理名",class: "w-100" %></td>
-        </tr>
-        <tr>
-          <td style="width: 200px">所要時間</td>
-          <td><%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %></td>
-        </tr>
-        <tr>
-          <td style="width: 200px">食材</td>
-          <td><%= f.text_area :foods,placeholder: "食材",class: "w-100" %></td>
-        </tr>
-        <tr>
-          <td style="width: 200px">調理法</td>
-          <td><%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %></td>
-        </tr>
-      </tbody>
-    </table>
-    <br>
-    <div class="text-center">
+    <div class="taable table-borderless">
+      <div class="taable table-borderless">
+      <div style="width: 200px">料理画像</div>
+      <%= f.file_field :image,accept: "image/*" %>
+      <div style="width: 200px">料理名</div>
+      <%= f.text_field :name,placeholder: "料理名",class: "w-100" %>
+      <div style="width: 200px">所要時間</div>
+      <%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %>
+      <div style="width: 200px">食材</div>
+      <%= f.text_area :foods,placeholder: "食材",class: "w-100" %>
+      <div style="width: 200px">調理法</div>
+      <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
+      </div>
+      <br>
+      <div class="text-center">
       <%= f.submit "登録", class: "btn btn-success" %>
-    </div>
+      </div>
     <% end %>
   <% end %>
     <div class="col-4"></div>

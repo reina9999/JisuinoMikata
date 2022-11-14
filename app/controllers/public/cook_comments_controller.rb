@@ -5,15 +5,15 @@ class Public::CookCommentsController < ApplicationController
     comment.cook_id = @cook.id
     comment.save
     @cook_comment = CookComment.new
-    
-  end 
-  
+
+  end
+
   def destroy
-    CookComment.find(params[:id]).destroy
+    current_customer.cook_comments.find(params[:id]).destroy
     @cook_comment= CookComment.new
     @cook = Cook.find(params[:cook_id])
   end
-  
+
   private
 
   def cook_comment_params
