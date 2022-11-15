@@ -10,14 +10,15 @@
         投稿者:<%= @cook.customer.name %>
       </div>
       <div class="col-md-6">
-
-          <h1 class="display-5 fw-bolder"><%= @cook.name %></h1>
-          <div class="fs-5 mb-5">
-            <span class="text-decoration-line-through">
-              調理時間:<%= @cook.required_time %>分
-            </span>
-          </div>
+        <h1 class="display-5 fw-bolder"><%= @cook.name %></h1>
+        <div class="fs-5 mb-5">
+          <span class="text-decoration-line-through">
+          調理時間:<%= @cook.required_time %>分
+          </span>
+        </div>
           <p class="lead">
+            <タグ>
+            <%= @tag.name %>
             <材料>
             <br>
             <%= @cook.foods %>

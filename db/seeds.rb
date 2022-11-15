@@ -9,3 +9,10 @@ Admin.create!(
   email: 'reina@admin',
   password: 'reinayamamoto',
 )
+
+tag_names = ['和食','中華','洋食']
+tag_names.each do |tag_name|
+    Tag.create!(
+     name: tag_name,
+    )
+ end

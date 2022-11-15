@@ -2,6 +2,7 @@ class CreateCooks < ActiveRecord::Migration[6.1]
   def change
     create_table :cooks do |t|
     t.integer :customer_id
+    t.integer :tag_id
     t.string :name
     t.integer :required_time
     t.text :foods

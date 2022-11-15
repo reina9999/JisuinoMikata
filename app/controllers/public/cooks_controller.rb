@@ -2,10 +2,22 @@ class Public::CooksController < ApplicationController
  before_action :authenticate_customer!
   def new
     @cook = Cook.new
+    @tags = Tag.all
   end
 
   def index
-    @cooks = Cook.all.page(params[:page]).per(10)
+    @cooks = Cook.all
+    @tags = Tag.all
+
+    # logic for tag search
+    if params[:tag_id]
+      @tag = Tag.find(params[:tag_id])
+      @cooks = @cooks.where(tag_id: @tag.id)
+    end
+
+    @cooks = @cooks.page(params[:page]).per(20)
+
+    # @tag = Tag.find(params[:id])
     # @cook = Cook.find(params[:id])
     # @customer = @cook.customer
   end
@@ -23,10 +35,10 @@ class Public::CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
     if @cook.save
-      # @cook.save_tag(params[:cook][:tag])
       redirect_to cooks_path,notice: "You have created cook successfully."
     else
       @cooks = Cook.all
+      @tags = Tag.all
       render 'new'
     end
   end
@@ -49,6 +61,6 @@ class Public::CooksController < ApplicationController
 
   private
   def cook_params
-    params.require(:cook).permit(:image, :name, :required_time, :foods, :recipe)
+    params.require(:cook).permit(:image, :name, :required_time, :foods, :recipe, :tag_id)
   end
 end

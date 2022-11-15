@@ -1,32 +1,36 @@
 <div class="container">
   <div class="row my-5">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
-      <h4 class="m-0">会員情報編集</h4>
+      <div style="border: solid thin ">
+        <br>
+        <h3 class="text-center text-secondary mt-2">会員情報編集</h3>
+        <!--<%#= render "public/shared/error_messages", resource: resource %>-->
+        <br>
+        <div class="text-center text-secondary">
+        <%= form_with model: @customer, url: customer_path(@customer.id), id: "new_customer", class: "new_customer" do |f| %>
+          <div class="form-group">
+            <%= f.label :name,"名前" %><br />
+            <%= f.text_field :name, placeholder: "自炊花子" %>
+          </div>
 
-    <%= form_with model: @customer, url: edit_customer_path(@customer.id), id: "new_customer", class: "new_customer" do |f| %>
+          <!--<div class="form-group">-->
+          <!--  <%#= f.label :password,"パスワード" %><br />-->
+          <!--  <%#= f.text_field :password,placeholder: "aaaaaa" %>-->
+          <!--</div>-->
 
-      <!--<%#= render "public/shared/error_messages", resource: resource %>-->
-      <br>
-      <div class="form-group">
-        <%= f.label :name,"名前" %>
-        <%= f.text_field :name, placeholder: "自炊花子",class: "w-100" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :password,"パスワード" %>
-        <%= f.text_field :password,placeholder: "aaaaaa",class: "w-100" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :email,"メールアドレス" %>
-        <%= f.text_field :email,placeholder: "aaaaaa",class: "w-100" %>
-      </div>
-      <br>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <%= f.submit "編集内容を保存", method: :patch , class: "btn btn-success" %>
-        <%= link_to "退会", customers_confirm_path, class: "btn btn-danger" %>
-      </div>
-    <% end %>
-      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <%= link_to "戻る", :back %>
+          <div class="form-group">
+            <%= f.label :email,"メールアドレス" %><br />
+            <%= f.text_field :email,placeholder: "aaaaaa" %>
+          </div>
+          <br>
+          <div class="form-group">
+            <%= f.submit "更新", method: :patch , class: "btn btn-outline-dark" %>
+            <%= link_to "退会", customers_confirm_path, class: "btn btn-outline-danger" %>
+        <% end %>
+          <%= link_to "戻る", :back, class: "btn btn-outline-secondary" %>
+          </div>
+          <br>
+        </div>
       </div>
     </div>
   </div>

@@ -1,48 +1,31 @@
-<div class="container">
-  <div class="row my-5">
-    <div class="col-3 offset-1 d-inline-flex">
-      <div class="bg-light px-3">
-        <h4 class="m-0">マイページ</h4>
-      </div>
-    </div>
-    <%= link_to "bookmark",bookmarks_customer_path(current_customer),class: "btn btn-outline-secondary"%>
-    <%= link_to "献立作成",new_cook_menu_path(current_customer),class: "btn btn-outline-secondary"%>
-  </div>
-
-
-
-  <div class="row">
-    <div class="col-6">
-      <table class="table table-borderless mb-1">
-        <tbody>
-          <tr>
-            <td class="px-0 align-middle" style="width: 120px">
-              <h5 class="m-0"><%= current_customer.name %></h5>
-            </td>
-            <td class="px-0 align-middle"><%= link_to "編集する", edit_customer_path(@customer.id), class: "btn btn-success" %></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <div class="row">
-    <h3 class="col-8">投稿一覧</h3>
-          <% @cooks.each do |cook| %>
-          <table class="col-2 table table-borderless table table-sm d-inline-flex m-4 p-0">
-
-            <tr>
-              <td><%= image_tag cook.get_image, size: "200x150" %></td>
-            </tr>
-            <tr>
-              <td><%= link_to cook.name, cook_path(cook.id) %></td>
-            </tr>
-            <tr>
-              <td>調理時間:<%= cook.required_time %>分</td>
-            </tr>
-
-          </table>
-          <% end %>
-
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+        <h4 class="m-0"><%= current_customer.name %> さん
+        <%= link_to edit_customer_path(@customer.id), class: "btn btn-outline-secondary" do %>
+        <i class="fas fa-user-cog"></i>
+        <% end %>
+        <%= link_to bookmarks_customer_path(current_customer),class: "btn btn-outline-secondary" do %>
+        <i class="fas fa-bookmark text-dark"></i> Bookmark List
+        <% end %>
+        <%= link_to  new_cook_menu_path(current_customer),class: "btn btn-outline-secondary" do %>
+        <i class="fad fa-hat-chef"></i>献立
+        <% end %>
+        </h4>
+        <br>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <% @cooks.each do |cook| %>
+          <div class="col mb-5">
+            <div class="card h-100">
+              <h3 class="d-inline-flex px-0"><%= image_tag cook.get_image, size: "250x150" %></h3>
+              <div class="card-body p-4">
+                <div class="text-center">
+                <h5 class="fw-bolder"><%= link_to cook.name, cook_path(cook.id) %></h5>
+                調理時間:<%= cook.required_time %>分
+                </div>
+              </div>
+            </div>
+          </div>
+        <% end %>
     </div>
   </div>
+</section>

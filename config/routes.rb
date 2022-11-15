@@ -19,15 +19,14 @@ scope module: :public do
   get "homes/about" => "homes#about"
   get "customers/confirm" => "customers#confirm"
   patch "customers/withdraw" => "customers#withdraw"
-  #get "searches" => "public#searches"
+  get "cook/search" => "searches#search"
 
   resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy] do
 
     resources :bookmarks, only:[:create,:destroy]
     resources :cook_comments, only:[:create,:destroy]
-    resources :tags, only:[:index,:show,:destroy]
+    # resources :tags, only:[:index,:show,:destroy]
     resources :menus, only:[:new,:create]
-
   end
 
 

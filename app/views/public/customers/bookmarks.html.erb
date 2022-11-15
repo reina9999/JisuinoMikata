@@ -1,7 +1,7 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-      <h4 class="m-0"><i class="fas fa-bookmark"></i>ブックマーク一覧</h4>
+      <h4 class="m-0"><i class="fas fa-bookmark"></i>Bookmark List</h4>
       <% if @cooks.present? %>
         <% @cooks.each do |cook| %>
         <div class="col mb-5">
@@ -9,7 +9,7 @@
             <div id="bookmark_buttons_<%= cook.id %>">
             <%= render "public/bookmarks/bookmarks", cook: cook %>
             </div>
-            <h3 class="d-inline-flex px-0"><%= image_tag cook.get_image, size: "200x150" %></h3>
+            <h3 class="d-inline-flex px-0"><%= image_tag cook.get_image, size: "250x150" %></h3>
               <div class="card-body p-4">
                 <div class="text-center">
                 <h5 class="fw-bolder">料理名:<%= link_to cook.name, cook_path(cook.id) %>

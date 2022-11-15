@@ -1,6 +1,10 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
+    <%= render 'public/searches/search', cook: @cooks %>
+    <%= render 'public/tags/tag', tags: @tags %>
+    <br>
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
       <% @cooks.each do |cook| %>
         <div class="col mb-5">
           <div class="card h-100">
@@ -10,7 +14,7 @@
             <h3 class="d-inline-flex px-0"><%= image_tag cook.get_image, size: "250x150" %></h3>
             <div class="card-body p-4">
               <div class="text-center">
-              <h5 class="fw-bolder">料理名:<%= link_to cook.name, cook_path(cook.id) %></h5>
+              <h5 class="fw-bolder"><strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong></h5>
               調理時間:<%= cook.required_time %>分
               </div>
             </div>
