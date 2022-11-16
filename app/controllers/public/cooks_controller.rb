@@ -15,7 +15,7 @@ class Public::CooksController < ApplicationController
       @cooks = @cooks.where(tag_id: @tag.id)
     end
 
-    @cooks = @cooks.page(params[:page]).per(20)
+    @cooks = @cooks.page(params[:page]).per(8)
 
     # @tag = Tag.find(params[:id])
     # @cook = Cook.find(params[:id])
@@ -25,6 +25,7 @@ class Public::CooksController < ApplicationController
   def show
     @cook = Cook.find(params[:id])
     @cook_comment = CookComment.new
+    # @tag = Tag.find(params[:tag_id])
   end
 
   def edit

@@ -26,8 +26,9 @@ scope module: :public do
     resources :bookmarks, only:[:create,:destroy]
     resources :cook_comments, only:[:create,:destroy]
     # resources :tags, only:[:index,:show,:destroy]
-    resources :menus, only:[:new,:create]
+
   end
+  resources :menus, only:[:index,:create,:show,:destroy]
 
 
   resources :searches, only:[:search]
@@ -41,7 +42,9 @@ namespace :admin do
   root :to => "homes#top"#訂正要？
 
   #get :"customers/invalid" => "customers#invalid"
-  resources :cooks,only:[:show,:edit,:update,:destroy]
+  resources :cooks,only:[:show,:edit,:update,:destroy] do
+    resources :cook_comments, only:[:destroy]
+  end
   resources :customers, only:[:index,:show,:edit,:update]
   resources :genres, only:[:index,:create,:edit,:update]
 

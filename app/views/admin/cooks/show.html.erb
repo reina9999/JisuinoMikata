@@ -23,7 +23,9 @@
           <br>
           <%= @cook.recipe %>
         </p>
-          <%= render "admin/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %>
+          <div id="comments-area">
+            <%= render "admin/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %>
+          </div>
         <!--<%# if @cook_comment.present? %>-->
         <!--  <%# @cook_comment.each do |comment| %>-->
         <!--  <%#= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %><%#= comment.comment %>-->

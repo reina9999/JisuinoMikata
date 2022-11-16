@@ -12,8 +12,8 @@
             <h3 class="d-inline-flex px-0"><%= image_tag cook.get_image, size: "250x150" %></h3>
               <div class="card-body p-4">
                 <div class="text-center">
-                <h5 class="fw-bolder">料理名:<%= link_to cook.name, cook_path(cook.id) %>
-                調理時間:<%= cook.required_time %>分
+                <h5 class="fw-bolder"><%= link_to cook.name, cook_path(cook.id) %></h5>
+                調理時間 <%= cook.required_time %>分
                 </div>
               </div>
               <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
@@ -23,6 +23,7 @@
           </div>
         <% end %>
     <% end %>
+    <div class="col-2 offset-5"><%= paginate @cooks %></div>
     </div>
   </div>
 </section>

@@ -1,0 +1,2 @@
+class RandomMenu < ApplicationRecord
+end

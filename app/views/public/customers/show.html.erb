@@ -7,7 +7,7 @@
         <%= link_to bookmarks_customer_path(current_customer),class: "btn btn-outline-secondary" do %>
         <i class="fas fa-bookmark text-dark"></i> Bookmark List
         <% end %>
-        <%= link_to  new_cook_menu_path(current_customer),class: "btn btn-outline-secondary" do %>
+        <%= link_to menus_path,class: "btn btn-outline-secondary" do %>
         <i class="fad fa-hat-chef"></i>献立
         <% end %>
         </h4>
@@ -20,6 +20,7 @@
               <div class="card-body p-4">
                 <div class="text-center">
                 <h5 class="fw-bolder"><%= link_to cook.name, cook_path(cook.id) %></h5>
+                <%= cook.tag.name unless cook.tag.nil? %>
                 調理時間:<%= cook.required_time %>分
                 </div>
               </div>
@@ -27,5 +28,6 @@
           </div>
         <% end %>
     </div>
+    <div class="col-2 offset-5"><%= paginate @cooks %></div>
   </div>
 </section>

@@ -17,8 +17,8 @@
           </span>
         </div>
           <p class="lead">
-            <タグ>
-            <%= @tag.name %>
+            <%= @cook.tag.name unless @cook.tag.nil? %>
+            <br>
             <材料>
             <br>
             <%= @cook.foods %>

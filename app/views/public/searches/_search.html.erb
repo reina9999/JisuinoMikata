@@ -3,6 +3,6 @@
     <%= f.text_field :word %>
     <%= f.select :range, options_for_select(['Cook']) %>
     <%= f.select :search, options_for_select([["完全一致","perfect_match"],["部分一致","partial_match"]]) %>
-    <%= f.submit "検索", class: "btn btn-primary" %>
+    <%= f.submit "検索", class: "btn btn-info btn-sm" %>
   <% end %>
 </div>

@@ -1,0 +1,46 @@
+<div class="container">
+  <%= link_to '<< 一覧に戻る', menus_path %>
+  <h4>
+    <%= @random_menu.first.title %>
+  </h4>
+  <% @cooks.each_with_index do |cook, index| %>
+    <div class="card shadow mb-4">
+      <div class="row">
+        <div class="col-md-4">
+          <%= image_tag cook.image, class: 'img-fluid random-menu-card-img' %>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body">
+            <h5><%= link_to cook.name, cook_path(cook) %></h5>
+            <p>
+              <%= cook.required_time %> min
+            </p>
+          </div>
+        </div>
+        <div class="col-md-2 w-100 h-100 d-flex justify-content-center align-self-center">
+          <% case index %>
+            <% when 0 then %>
+              <h4>月</h4>
+            <% when 1 then %>
+              <h4>火</h4>
+            <% when 2 then %>
+              <h4>水</h4>
+            <% when 3 then %>
+              <h4>木</h4>
+            <% when 4 then %>
+              <h4>金</h4>
+            <% when 5 then %>
+              <h4>土</h4>
+            <% when 6 then %>
+              <h4>日</h4>
+            <% else %>
+            　ERR
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-danger', method: :delete %>
+
+</div>

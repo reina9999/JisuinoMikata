@@ -5,7 +5,8 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @cook=Cook.new
     @cook_comment = CookComment.new
-    @cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(5)
+    @cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(8)
+    # @tag = Tag.find(params[:tag_id])
     # binding.irb
   end
 
@@ -46,7 +47,7 @@ class Public::CustomersController < ApplicationController
 
     # bookmarkIds = Customer.find(params[:id]).bookmarks.pluck(:cook_id)
     bookmarkIds = current_customer.bookmarks.pluck(:cook_id)
-    @cooks = Cook.find(bookmarkIds)
+    @cooks = Cook.where(id: bookmarkIds).page(params[:page]).per(8)
   end
 
 
