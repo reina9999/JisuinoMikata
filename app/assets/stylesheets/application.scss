@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+ // .navbar{
+ //   opacity: 50;
+ // }
+
+ .back_image{
+    background-image: image-url('cook1.png');
+    // background-size: 100% auto;
+    height: 80vh;
+    width: 100vw;
+    opacity: 0.7;
+ }
