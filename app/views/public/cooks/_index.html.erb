@@ -9,7 +9,9 @@
         <div class="text-center">
           <h5 class="fw-bolder"><strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong></h5>
             <%= cook.tag.name unless cook.tag.nil? %>
-            調理時間:<%= cook.required_time %>分
+            <br>
+            <br>
+            <%= cook.required_time %>min
           </div>
         </div>
         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">

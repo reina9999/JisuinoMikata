@@ -6,7 +6,7 @@
       <div style="width: 200px">料理名</div>
         <%= f.text_field :name,placeholder: "料理名",class: "w-100" %>
       <div style="width: 200px">所要時間</div>
-        <#%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %>
+        <%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %>
       <div style="width: 200px">食材</div>
         <%= f.text_area :foods,placeholder: "食材",class: "w-100" %>
       <div style="width: 200px">調理法</div>
@@ -14,9 +14,8 @@
       </div>
       <br>
       <% if @cook.customer == current_customer %>
-        <%= f.submit "Edit", class: "btn btn-success" %>
-        <%= link_to 'Edit', edit_cook_path(@cook), class: "btn btn-sm btn-success" %>
-        <%= link_to "Destroy",cook_path, method: :delete,"data-confirm" => "Are you sure?",class: "btn btn-sm btn-danger" %>
+        <%= f.submit "Update", class: "btn btn-sm btn-outline-info" %>
+        <%= link_to "Destroy",cook_path, method: :delete,"data-confirm" => "Are you sure?",class: "btn btn-sm btn-outline-danger" %>
       <% end %>
   <% end %>
 

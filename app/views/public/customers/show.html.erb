@@ -21,7 +21,8 @@
                 <div class="text-center">
                 <h5 class="fw-bolder"><%= link_to cook.name, cook_path(cook.id) %></h5>
                 <%= cook.tag.name unless cook.tag.nil? %>
-                調理時間:<%= cook.required_time %>分
+                <br>
+                <%= cook.required_time %>min
                 </div>
               </div>
             </div>

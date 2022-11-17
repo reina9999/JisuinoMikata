@@ -10,7 +10,9 @@
         <h1 class="display-5 fw-bolder"><%= @cook.name %></h1>
         <div class="fs-5 mb-5">
           <span class="text-decoration-line-through">
-          調理時間:<%= @cook.required_time %>
+          <%= @cook.tag.name unless @cook.tag.nil? %>
+          <br>
+          <%= @cook.required_time %>min
           </span>
         </div>
         <p class="lead">
@@ -30,7 +32,7 @@
         <!--  <%# @cook_comment.each do |comment| %>-->
         <!--  <%#= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %><%#= comment.comment %>-->
         <!--  <%#= link_to "削除", cook_cook_comment_path(@cook, comment), method: :delete,remote: true,class: "btn btn-danger pull-right" %>-->
-          コメント投稿者:<%#= @cook.customer.name %>
+          <%#= @cook.customer.name %>
         <!--  <%#= link_to comment.customer.name,admin_customer_path(comment.customer) %>-->
         <!--  <br>-->
         <!--  <%# end %>-->

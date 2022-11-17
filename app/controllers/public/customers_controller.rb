@@ -47,7 +47,7 @@ class Public::CustomersController < ApplicationController
 
     # bookmarkIds = Customer.find(params[:id]).bookmarks.pluck(:cook_id)
     bookmarkIds = current_customer.bookmarks.pluck(:cook_id)
-    @cooks = Cook.where(id: bookmarkIds).page(params[:page]).per(8)
+    @cooks = Cook.where(id: bookmarkIds).page(params[:page]).per(7)
   end
 
 

@@ -3,6 +3,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Kiwi+Maru&family=Raleway&display=swap');
 
+// @import background: url(/images/image.png);
+// @import background-image: url(/images/image.png);
+
 html, body {
   font-family: 'Raleway', 'Kiwi Maru', serif;
 }
@@ -12,3 +15,10 @@ html, body {
   width: 100% !important;
   height: 200px !important;
 }
+
+// .main-container {
+//   background-image: url("/images/hogehoge.png");
+//   height: 800px;
+//   background-size: cover;
+// }
+
