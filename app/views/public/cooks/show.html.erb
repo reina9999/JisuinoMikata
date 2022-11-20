@@ -2,10 +2,11 @@
   <div class="container px-4 px-lg-5 my-5">
     <div class="row gx-4 gx-lg-5 align-items-center">
       <div class="col-md-6">
-        <div id="bookmark_buttons_<%= @cook.id %>">
+        <h4><div id="bookmark_buttons_<%= @cook.id %>">
           <%= render "public/bookmarks/bookmarks", cook: @cook %>
         </div>
-        <%= image_tag @cook.get_image, size: "450x300" %>
+        </h4>
+        <%= image_tag @cook.get_image, size: "450x300",class: "shadow-lg"  %>
         <br>
         投稿者:<%= @cook.customer.name %>
       </div>

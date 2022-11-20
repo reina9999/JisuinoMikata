@@ -1,5 +1,8 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
+    <% if customer_signed_in? %>
+    <h3>Welcome!! <%= current_customer.name %>さん</h3>
+    <% end %>
     <div class="text-right"><%= render 'public/searches/search', cook: @cooks %>
     <br>
     <%= render 'public/tags/tag', tags: @tags %>

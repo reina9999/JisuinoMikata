@@ -3,18 +3,17 @@
   <h4>
     <%= @random_menu.first.title %>
   </h4>
+  <br>
   <% @cooks.each_with_index do |cook, index| %>
-    <div class="card shadow mb-4">
+    <div class="card mb-4">
       <div class="row">
         <div class="col-md-4">
           <%= image_tag cook.image, class: 'img-fluid random-menu-card-img' %>
         </div>
         <div class="col-md-6">
           <div class="card-body">
-            <h5><%= link_to cook.name, cook_path(cook) %></h5>
-            <p>
-              <%= cook.required_time %> min
-            </p>
+            <h5><%= link_to cook.name, cook_path(cook), class: "nav-link text-dark" %></h5>
+              <h4><%= cook.required_time %> min</h4>
           </div>
         </div>
         <div class="col-md-2 w-100 h-100 d-flex justify-content-center align-self-center">
@@ -40,7 +39,10 @@
       </div>
     </div>
   <% end %>
-
+<div class= "text-right">
   <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-outline-danger', method: :delete %>
+</div>
+  <br>
 
 </div>
+<br>

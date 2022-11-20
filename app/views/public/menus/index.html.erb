@@ -1,20 +1,33 @@
 <div class="container">
-  <%= form_with model: @random_menu, url: menus_path, method: :post do |f| %>
-    <div class="form-group">
-      <h4><%= f.label :title, 'ランダムメニュータイトル' %></h4>
-      <%= f.text_field :title, class: 'form-control' %>
-    </div>
-    <div class="form-group">
-      <%= f.submit '生成', class: 'btn btn-outline-info' %>
-    </div>
-  <% end %>
-</div>
+  <div class="row my-5">
+    <div class="col-sm-12 col-md-8 col-lg-4 px-5 px-sm-0 mx-auto">
+      <br>
+      <%= form_with model: @random_menu, url: menus_path, method: :post do |f| %>
+      <h3 class="text-center text-black mt-2">
+        <%= f.label :title, 'ランダムメニュータイトル' %>
+        <%= f.text_field :title, class: 'form-control w-100' %>
+      </h3>
+      <br>
+      <div class="form-group text-center">
+        <%= f.submit '生成', class: 'btn btn-outline-info' %>
+      </div>
+      <% end %>
+      <br>
 
-<div class="container">
-  <h4>生成メニュー一覧</h4>
-  <% @random_menus.each do |random_menu| %>
-    <div>
-      <%= link_to random_menu.title, menu_path(id: random_menu.id) %>
+      <div class="row">
+        <div class="col-sm-12 col-md-11 col-lg-9 px-5 px-sm-0 mx-auto">
+        <h3 class="text-center text-black mt-4">生成メニュー一覧</h3>
+        <div class= "text-left">
+        <ul class="list-group">
+        <% @random_menus.each do |random_menu| %>
+        <li><%= link_to random_menu.title, menu_path(id: random_menu.id) %></li>
+        </ui>
+        <% end %>
+        <br>
+        </div>
+      </div>
+      </div>
+     
     </div>
-  <% end %>
+  </div>
 </div>
