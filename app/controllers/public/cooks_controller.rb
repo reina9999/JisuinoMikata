@@ -30,6 +30,7 @@ class Public::CooksController < ApplicationController
 
   def edit
     @cook = Cook.find(params[:id])
+    # @tag = Tag.find(params[:tag_id])
   end
 
   def create

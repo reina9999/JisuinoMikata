@@ -8,12 +8,12 @@
         <i class="fas fa-bookmark text-dark"></i> Bookmark List
         <% end %>
         <%= link_to menus_path,class: "btn btn-outline-secondary" do %>
-        <i class="fad fa-hat-chef"></i>献立
+        献立作成
         <% end %>
         </h4>
         <br>
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
-          
+
         <% @cooks.each do |cook| %>
           <div class="col mb-5">
             <div class="card" style="width: 260px;">

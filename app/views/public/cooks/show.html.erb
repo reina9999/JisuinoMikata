@@ -6,7 +6,7 @@
           <%= render "public/bookmarks/bookmarks", cook: @cook %>
         </div>
         </h4>
-        <%= image_tag @cook.get_image, size: "450x300",class: "shadow-lg"  %>
+        <div class="radius_test"><%= image_tag @cook.get_image, size: "450x300",class: "shadow-lg"  %></div>
         <br>
         投稿者:<%= @cook.customer.name %>
       </div>
@@ -29,7 +29,7 @@
             <%= @cook.recipe %>
           </p>
           <div class="d-flex">
-            <%= link_to "編集する", edit_cook_path(@cook) %>
+            <%= link_to "レシピを編集する", edit_cook_path(@cook) %>
             <div id="comments-area"><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div>
           </div>
       </div>

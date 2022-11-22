@@ -13,10 +13,12 @@
         <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
     </div>
       <br>
+      <div class="text-center">
       <% if @cook.customer == current_customer %>
-        <%= f.submit "Update", class: "btn btn-sm btn-outline-info" %>
+        <%= f.submit "Update", class: "btn btn-sm btn-outline-dark" %>
         <%= link_to "Destroy",cook_path, method: :delete,"data-confirm" => "Are you sure?",class: "btn btn-sm btn-outline-danger" %>
       <% end %>
+      </div>
   <% end %>
 
 <% else %>
@@ -38,7 +40,7 @@
     </div>
     <br>
     <div class="text-center">
-      <%= f.submit "登録", class: "btn btn-outline-dark" %>
+      <%= f.submit "投稿", class: "btn btn-outline-dark" %>
     </div>
   <% end %>
 <% end %>
