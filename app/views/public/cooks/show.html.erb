@@ -21,12 +21,14 @@
           <p class="lead">
             <材料>
             <br>
-            <%= @cook.foods %>
+            <%=safe_join(@cook.foods.split("\n"),tag(:br))%>
+            <%#= @cook.foods %>
             <br>
             <br>
             <作り方>
             <br>
-            <%= @cook.recipe %>
+            <%=safe_join(@cook.recipe.split("\n"),tag(:br))%>
+            <%#= @cook.recipe %>
           </p>
           <%= link_to "レシピを編集する", edit_cook_path(@cook) %>
           <div id="comments-area "><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div>

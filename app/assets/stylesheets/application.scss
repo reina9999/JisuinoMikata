@@ -18,11 +18,12 @@
  // }
 
  .back_image{
-    background-image: image-url('remon.png');
+    background-image: image-url('remonade.png');
     // background-size: 100% auto;
     height: 80vh;
     width: 100vw;
     opacity: 0.7;
+    object-fit: cover;
  }
 
  /*ページネーション自体のデザイン*/
@@ -48,7 +49,7 @@
 
 
 img {
-  
+
   object-fit: cover;
 }
 

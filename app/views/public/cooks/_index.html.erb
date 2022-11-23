@@ -1,11 +1,11 @@
 <% @cooks.each do |cook| %>
-  <div class="col-md-2 mr-3v" style="vw: 250px;">
-    <%= image_tag cook.get_image, size: "250x250" %>
+  <div class="col-md-2 mr-3v" style="vw: 260px;">
+    <%= image_tag cook.get_image, size: "260x260" %>
     <div class="row">
-    <h5><strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong></h5><br>
+    <h5><strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong></h5>
     </div>
-    <div class="row">
+
     <%= cook.tag.name unless cook.tag.nil? %>/<%= cook.required_time %>min</br>
-    </div>
+
   </div>
 <% end %>

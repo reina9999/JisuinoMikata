@@ -15,18 +15,15 @@
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
 
         <% @cooks.each do |cook| %>
-          <div class="col mb-5">
-            <div class="card" style="width: 260px;">
-              <h3 class="d-inline-flex px-0"><%= image_tag cook.get_image, size: "260x160" %></h3>
-              <div class="card-body">
-                <div class="text-center">
-                <h5 class="fw-bolder"><strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong></h5>
+          
+            <div class="col-md-2 mr-3v" style="vw: 260px;">
+              <h3 class="d-inline-flex px-0"><%= image_tag cook.get_image, size: "260x260" %></h3>
+            <strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong>
                 <%= cook.tag.name unless cook.tag.nil? %>/
                 <%= cook.required_time %>min
-                </div>
-              </div>
             </div>
-          </div>
+             
+            
         <% end %>
     </div>
     <div class="col-2 offset-5"><%= paginate @cooks %></div>

@@ -1,9 +1,11 @@
 <br>
 <% cook.cook_comments.each do |cook_comment| %>
-  <%= cook_comment.comment %>/<%= cook_comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
+  <div>
+  <%= cook_comment.comment %>/<%= cook_comment.created_at.in_time_zone('Asia/Tokyo').strftime("%Y-%m-%d %H:%M:%S") %>
+  <%#= cook_comment.comment %>/<%= cook_comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %>
   <% if cook_comment.customer == current_customer %>
-    <%= link_to "削除", cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete,remote: true,class: "btn btn-outline-danger btn-sm" %>
-  <br>
+    <%= link_to "削除", cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete,remote: true,class: "text-danger" %>
+  </div>
   <% end %>
 
 
