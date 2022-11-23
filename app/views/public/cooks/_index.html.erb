@@ -1,20 +1,11 @@
 <% @cooks.each do |cook| %>
-  <div class="col mb-5">
-    <div class="card" style="width: 260px;">
-      <div class="d-inline-flex px-0 "><%= image_tag cook.get_image, size: "260x160" %></div>
-      <div class="card-body">
-        <!--<div id="bookmark_buttons_<%#= cook.id %>">-->
-        <!--<%#= render "public/bookmarks/bookmarks", cook: cook %>-->
-        <!--</div>-->
-        <div class="text-center">
-          <h5 class="fw-bolder"><strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong></h5>
-            <%= cook.tag.name unless cook.tag.nil? %>/
-            <%= cook.required_time %>min</br>
-          </div>
-        </div>
-
-
-
+  <div class="col-md-2 mr-3v" style="vw: 250px;">
+    <%= image_tag cook.get_image, size: "250x250" %>
+    <div class="row">
+    <h5><strong><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></strong></h5><br>
+    </div>
+    <div class="row">
+    <%= cook.tag.name unless cook.tag.nil? %>/<%= cook.required_time %>min</br>
     </div>
   </div>
 <% end %>

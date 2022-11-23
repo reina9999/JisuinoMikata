@@ -28,15 +28,6 @@
           <div id="comments-area">
             <%= render "admin/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %>
           </div>
-        <!--<%# if @cook_comment.present? %>-->
-        <!--  <%# @cook_comment.each do |comment| %>-->
-        <!--  <%#= comment.created_at.strftime("%Y-%m-%d %H:%M:%S") %><%#= comment.comment %>-->
-        <!--  <%#= link_to "削除", cook_cook_comment_path(@cook, comment), method: :delete,remote: true,class: "btn btn-danger pull-right" %>-->
-          <%#= @cook.customer.name %>
-        <!--  <%#= link_to comment.customer.name,admin_customer_path(comment.customer) %>-->
-        <!--  <br>-->
-        <!--  <%# end %>-->
-        <!--<%# end %>-->
       </div>
     </div>
   </div>

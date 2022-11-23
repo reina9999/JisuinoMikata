@@ -1,8 +1,6 @@
 <br>
 <% cook.cook_comments.each do |cook_comment| %>
   <div>
-    <!--<%= cook.customer.name %>
-  <%#= link_to cook_comment.customer.name,admin_customer_path(comment.customer) %>#コメント投稿者-->
   <%= cook_comment.comment %>/<%= cook_comment.created_at.in_time_zone('Asia/Tokyo').strftime("%Y-%m-%d %H:%M:%S") %>
   <%= link_to "削除", admin_cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete,remote: true,class: "btn btn-outline-danger btn-sm" %>
   投稿者：<%= cook_comment.customer.name %>

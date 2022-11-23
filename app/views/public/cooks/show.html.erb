@@ -28,10 +28,8 @@
             <br>
             <%= @cook.recipe %>
           </p>
-          <div class="d-flex">
-            <%= link_to "レシピを編集する", edit_cook_path(@cook) %>
-            <div id="comments-area"><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div>
-          </div>
+          <%= link_to "レシピを編集する", edit_cook_path(@cook) %>
+          <div id="comments-area "><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div>
       </div>
     </div>
   </div>
