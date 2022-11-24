@@ -16,7 +16,7 @@
       <% @cooks.each do |cook| %>
       <tr>
         <td><%= cook.id %></td>
-        <td><%= image_tag cook.get_image, size: "150x100" %></td>
+        <td><%= image_tag cook.get_image, size: "180x120" %></td>
         <td><%= link_to cook.name, admin_cook_path(cook) %></td>
         <td><%= cook.customer.name %></td>
       </tr>

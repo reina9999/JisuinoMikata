@@ -15,15 +15,18 @@
  */
  // .navbar{
  //   opacity: 50;
- // }
 
  .back_image{
     background-image: image-url('remonade.png');
     // background-size: 100% auto;
+    // background-color: red;
+    background-size: cover;
+    background-attachment: fixed;
     height: 80vh;
     width: 100vw;
     opacity: 0.7;
-    object-fit: cover;
+    background-position: center center;
+    // object-fit: cover;
  }
 
  /*ページネーション自体のデザイン*/

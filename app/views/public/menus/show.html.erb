@@ -1,50 +1,52 @@
-<div class="container">
-  <div class="row my-5">
-    <div class="col-sm-12 col-md-8 col-lg-4 px-5 px-sm-0 mx-auto">
-  <%= link_to '<< 一覧に戻る', menus_path %>
-  <h4>
-    <%= @random_menu.first.title %>
-  </h4>
-  <br>
-  <% @cooks.each_with_index do |cook, index| %>
-    <div class="card mb-4">
-      <div class="row">
-        <div class="col-md-4">
-          <%= image_tag cook.image, class: 'img-fluid random-menu-card-img' %>
-        </div>
-        <div class="col-md-6">
-          <div class="card-body">
-            <h3><strong><%= link_to cook.name, cook_path(cook), class: "nav-link text-dark" %></strong></h3>
-            <h4><%= cook.required_time %> min</h4>
-          </div>
-        </div>
-        <div class="col-md-2 w-100 h-100 d-flex justify-content-center align-self-center">
-          <% case index %>
-            <% when 0 then %>
-              <h4>月</h4>
-            <% when 1 then %>
-              <h4>火</h4>
-            <% when 2 then %>
-              <h4>水</h4>
-            <% when 3 then %>
-              <h4>木</h4>
-            <% when 4 then %>
-              <h4>金</h4>
-            <% when 5 then %>
-              <h4>土</h4>
-            <% when 6 then %>
-              <h4>日</h4>
-            <% else %>
-            　ERR
-          <% end %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<div class= "text-right">
-  <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-outline-danger', method: :delete %>
-</div>
-  <br>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <%= link_to '<< 一覧に戻る', menus_path %>
+    <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-outline-danger', method: :delete %>
 
-</div>
-<br>
+    <h4><%= @random_menu.first.title %></h4>
+    <div class="row gx-4 gx-lg-2 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+
+        <% @cooks.each_with_index do |cook, index| %>
+          <div class="card-wrapper">
+            <div class="card-img">
+              <%= link_to(cook) do %>
+              <%= image_tag cook.image, size: "260x200" %>
+              <% end %>
+            </div>
+
+
+                <div class="card-box">
+                  <h5 class="col-6">
+                <% case index %>
+                  <% when 0 then %>
+                    <h4>月</h4>
+                  <% when 1 then %>
+                    <h4>火</h4>
+                  <% when 2 then %>
+                    <h4>水</h4>
+                  <% when 3 then %>
+                    <h4>木</h4>
+                  <% when 4 then %>
+                    <h4>金</h4>
+                  <% when 5 then %>
+                    <h4>土</h4>
+                  <% when 6 then %>
+                    <h4>日</h4>
+                  <% else %>
+                  　ERR
+                <% end %>
+                <%= link_to cook.name, cook_path(cook), class: "nav-link text-dark" %>
+                </h5>
+              </div>
+          </div>
+          <% end %>
+
+
+          <div class= "text-right">
+
+          </div>
+    </div>
+  </div>
+</section>
+
+

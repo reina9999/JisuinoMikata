@@ -1,24 +1,31 @@
 <div class="back_image">
-  <div class="container">
-    <div class="row">
-      
-      <div class='text-center mx-auto col-11 col-sm-10 col-lg-8 col-xl-6'>
-        <h1>Jisui no Mikata</h1>
-         <div class="container text-center mx-auto">
-            <div class="row">
-          <div class="btn-wrapper col-8 mx-auto  ">
-          <%= link_to 'Log in',new_customer_session_path, class: "btn btn-outline-info  mb-5 sign_in" %>
-          <%= link_to 'Log in',new_customer_session_path, class: "btn btn-info btn-sm btn-block mb-3 sign_in" %>
-            </div>
-          </div>
-        </div>
-      </div> 
+  <body class="text-center">
+    <div class="container">
     </div>
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+        <header class="masthead mb-auto">
+        </header>
+
+        <main role="main" class="inner cover">
+        <h1 class="display-3 cover-heading text-light"><strong>Jisui no Mikata</strong></h1>
+
+
+
+        <p class="lead">
+        <%= link_to 'Log in',new_customer_session_path, class: "btn btn-info btn-lg" %>
+        </p>
+        </main>
+
+        <footer class="mastfoot mt-auto">
+        </footer>
+
+
+      </div>
   </div>
-</div>  
-        
-        
-        
+</div>
+
+
+
         <link rel="stylesheet" href="homes.css">
         <div class="btn-wrapper col-10 mx-auto" >
           <div class="bg_test">
@@ -27,7 +34,3 @@
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</div>
