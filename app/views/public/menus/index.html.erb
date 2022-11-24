@@ -5,7 +5,7 @@
       <%= form_with model: @random_menu, url: menus_path, method: :post do |f| %>
       <h3 class="text-center text-black mt-2">
         <%= f.label :title, 'ランダムメニュータイトル' %>
-        <%= f.text_field :title, class: 'form-control w-100' %>
+        <%= f.text_field :title, class: 'form-control w-100', required: true, autocomplete: "off" %>
       </h3>
       <br>
       <div class="form-group text-center">
@@ -16,18 +16,18 @@
 
       <div class="row">
         <div class="col-sm-12 col-md-11 col-lg-11 px-5 px-sm-0 mx-auto">
-        <h3 class="text-center text-black mt-4">生成メニュー一覧</h3>
+        <h3 class="text-center text-black mt-4">作成メニュー一覧</h3>
         <div class= "text-left">
         <ul class="list-group">
         <% @random_menus.each do |random_menu| %>
-        <li><%= link_to random_menu.title, menu_path(id: random_menu.id) %></li>
+        <u><%= link_to random_menu.title, menu_path(id: random_menu.id),class: 'text-dark' %></u>
         </ui>
         <% end %>
         <br>
         </div>
       </div>
       </div>
-     
+
     </div>
   </div>
 </div>

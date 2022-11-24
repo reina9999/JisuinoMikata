@@ -4,7 +4,7 @@ class Public::SearchesController < ApplicationController
     @range = params[:range]
     @content = params[:word]
     @model = "cook"
-    @cooks = Cook.looks(params[:search], params[:word])
+    @cooks = Cook.looks(params[:search], params[:word]).page(params[:page]).per(8)
   end
 
 end

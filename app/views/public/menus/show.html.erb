@@ -1,9 +1,11 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
     <%= link_to '<< 一覧に戻る', menus_path %>
-    <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-outline-danger', method: :delete %>
 
-    <h4><%= @random_menu.first.title %></h4>
+    <div class="row">
+    <h3><strong><%= @random_menu.first.title %></strong></h3>
+    </div>
+    <br>
     <div class="row gx-4 gx-lg-2 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
 
         <% @cooks.each_with_index do |cook, index| %>
@@ -42,7 +44,8 @@
           <% end %>
 
 
-          <div class= "text-right">
+          <div class="col">
+          <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-outline-danger', method: :delete %>
 
           </div>
     </div>
