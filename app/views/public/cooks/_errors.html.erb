@@ -1,8 +1,8 @@
 <% if cook.errors.any? %>
   <%= cook.errors.count %>件のエラーが発生しました
   <ul>
-    <% cook.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    <% end %>
+  <% cook.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+  <% end %>
   </ul>
 <% end %>

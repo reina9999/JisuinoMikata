@@ -1,31 +1,26 @@
 class Public::CooksController < ApplicationController
- before_action :authenticate_customer!
-  def new
+  before_action :authenticate_customer!
+  def new #レシピ投稿
     @cook = Cook.new
     @tags = Tag.all
   end
 
-  def index
+  def index #レシピ一覧
     @cooks = Cook.all
     @tags = Tag.all
 
-    # logic for tag search
+    #タグ検索
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
-      @cooks = @cooks.where(tag_id: @tag.id)
+      @cooks = @cooks.where(tag_id: @tag.id) #
     end
 
     @cooks = @cooks.page(params[:page]).per(8)
-
-    # @tag = Tag.find(params[:id])
-    # @cook = Cook.find(params[:id])
-    # @customer = @cook.customer
   end
 
   def show
     @cook = Cook.find(params[:id])
     @cook_comment = CookComment.new
-    # @tag = Tag.find(params[:tag_id])
   end
 
   def edit
@@ -59,7 +54,6 @@ class Public::CooksController < ApplicationController
     @cook.destroy
     redirect_to cooks_path
   end
-
 
   private
   def cook_params

@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar navbar-expand-lg navbar-dark" style="opacity: 0.8;background-color: #808D44;">
     <div class="container">
-    <h1><%= link_to (image_tag('logo4.png')),root_path %></h1>
+    <h1><%= link_to (image_tag('logo.png')),root_path %></h1>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -21,7 +21,7 @@
       <% else %>
 
       <li><%= link_to "会員登録",new_customer_registration_path,class: 'btn btn-outline-light mr-3'  %></li>
-      <!--<li><%#= link_to "About",homes_about_path,class: 'nav-link text-dark'  %></li>-->
+      <li><%= link_to "About",homes_about_path,class: 'btn btn-outline-light mr-3'  %></li>
       <!--<li><%#= link_to "投稿一覧",cooks_path,class: 'nav-link text-dark'  %></li>-->
       <li><%= link_to "Log in",new_customer_session_path,class: 'btn btn-outline-light mr-3'  %></li>
       <li><%= link_to 'Guest',customers_guest_sign_in_path,class: "btn btn-outline-light mr-3",method: :post %></li>

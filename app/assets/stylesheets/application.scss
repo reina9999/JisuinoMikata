@@ -18,51 +18,45 @@
 
  .back_image{
     background-image: image-url('remonade.png');
-    // background-size: 100% auto;
-    // background-color: red;
     background-size: cover;
     background-attachment: fixed;
-    height: 80vh;
+    height: 84vh;
     width: 100vw;
     opacity: 0.7;
     background-position: center center;
-    // object-fit: cover;
- }
+    object-fit: cover;
+  }
 
- /*ページネーション自体のデザイン*/
+  // ページネーション自体のデザイン
  .pagination>li>a {
-   border: none;     /*枠線をなくす*/
-   color: #696969;   /*文字の色を変える*/
- }
+    border: none;    /*枠線削除*/
+    color: #696969;   
+  }
 
  /* 表示しているページ番号のデザイン */
  .pagination>.active>a {
-   background: #93c9ff;     /*背景の色を変える*/
-   border-radius: 20px;     /*角を丸くする*/
- }
+    background: #93c9ff;     
+    border-radius: 20px;    /*角丸*/
+  }
 
  /*ホバー時のデザイン*/
  .pagination>li>a:hover {
-   border-radius: 15px;    /*角を丸くする*/
- }
+    border-radius: 15px;    /*角丸*/
+  }
 
-.radius_test {
-    border-radius: 10px;        /* 角丸指定 */
-}
+  .radius_test {
+    border-radius: 10px;    /* 角丸 */
+  }
 
+  img {
+    object-fit: cover;
+  }
 
-img {
+  img {
+      border-radius: 10px;    /* 角丸 */
+  }
 
-  object-fit: cover;
-}
-
-img {
-    border-radius: 10px;        /* 角丸指定 */
-}
- // body {
- //  background-image: image-url("hoge.jpg");}
-.card-wrapper{
-  display: flex;
-  flex-direction: column;
-  
-}
+  .card-wrapper{
+    display: flex;
+    flex-direction: column;
+  }

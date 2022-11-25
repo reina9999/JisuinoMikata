@@ -1,7 +1,5 @@
 class Cook < ApplicationRecord
-
   has_one_attached :image
-
   belongs_to :customer
   has_many :bookmarks,dependent: :destroy
   has_many :cook_comments, dependent: :destroy
@@ -18,7 +16,6 @@ class Cook < ApplicationRecord
     bookmarks.exists?(customer_id: customer.id)
   end
 
-
   def get_image
     unless image.attached?
       file_path = Rails.root.join('app/assets/images/no_image.jpg')
@@ -26,7 +23,6 @@ class Cook < ApplicationRecord
     end
     image
   end
-
 
   def self.looks(search, word)
     if search == "perfect_match"
@@ -37,14 +33,6 @@ class Cook < ApplicationRecord
       @cook = Cook.all
     end
   end
-
-  # def get_image
-  #   if image.attached?
-  #     image
-  #   else
-  #     'no_image.jpg'
-  #   end
-  # end
 end
 
 

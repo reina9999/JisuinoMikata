@@ -1,7 +1,6 @@
 <%= form_tag({controller:"cooks",action:"index"}, method: :get) do  %>
-    <%= select_tag :tag_id, options_from_collection_for_select(tags, "id","name") %>
-    <!--<%#= submit_tag "検索", class: 'btn btn-outline-dark btn-sm' %>-->
-    <button type="submit" class="btn btn-outline-dark btn-sm">
+  <%= select_tag :tag_id, options_from_collection_for_select(tags, "id","name") %>
+  <button type="submit" class="btn btn-outline-dark btn-sm">
     <i class="fas fa-search"></i>
-    </button>
+  </button>
 <% end %>

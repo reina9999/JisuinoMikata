@@ -12,8 +12,6 @@
       <div style="width: 200px">作り方</div>
         <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
       <div style="width: 200px">タグ</div>
-        <%#= f.select :tag_id,tags.pluck(:name, :id),class: "w-100", include_blank: true %>
-
         <%= f.collection_select(:tag_id, Tag.all, :id, :name, {selected: tags.id}) %>
     </div>
       <br>
@@ -26,7 +24,6 @@
   <% end %>
 
 <% else %>
-
   <%= form_with model: @cook,local:true do |f| %>
     <div class="taable table-borderless">
       <div style="width: 200px">料理画像</div>

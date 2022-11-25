@@ -51,7 +51,6 @@ class Public::MenusController < ApplicationController
   end
 
   private
-
   def random_menu_params
     params.require(:random_menu).permit(:title)
   end

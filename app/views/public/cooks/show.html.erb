@@ -2,37 +2,34 @@
   <div class="container px-4 px-lg-5 my-5">
     <div class="row gx-4 gx-lg-5 align-items-center">
       <div class="col-md-6">
-        <h4><div id="bookmark_buttons_<%= @cook.id %>">
+        <h4 id="bookmark_buttons_<%= @cook.id %>">
           <%= render "public/bookmarks/bookmarks", cook: @cook %>
-        </div>
         </h4>
         <div class="radius_test"><%= image_tag @cook.get_image, size: "450x300",class: "shadow-lg"  %></div>
-        <br>
-        投稿者:<%= @cook.customer.name %>
-      </div>
-      <div class="col-md-6">
-        <h1 class="display-5 fw-bolder"><%= @cook.name %></h1>
-        <%= @cook.tag.name unless @cook.tag.nil? %>
-        <div class="fs-5 mb-5">
-          <span class="text-decoration-line-through">
-          調理時間:<%= @cook.required_time %>分
-          </span>
+          <br>
+          投稿者:<%= @cook.customer.name %>
         </div>
+        <div class="col-md-6">
+          <h1 class="display-5 fw-bolder"><%= @cook.name %></h1>
+          <%= @cook.tag.name unless @cook.tag.nil? %>
+          <div class="fs-5 mb-5">
+            <span class="text-decoration-line-through">
+            調理時間:<%= @cook.required_time %>分
+            </span>
+          </div>
           <p class="lead">
             <材料>
             <br>
             <%=safe_join(@cook.foods.split("\n"),tag(:br))%>
-            <%#= @cook.foods %>
             <br>
             <br>
             <作り方>
             <br>
             <%=safe_join(@cook.recipe.split("\n"),tag(:br))%>
-            <%#= @cook.recipe %>
           </p>
-          <%= link_to "レシピを編集する", edit_cook_path(@cook) %>
-          <div id="comments-area"><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div>
-      </div>
+            <%= link_to "レシピを編集する", edit_cook_path(@cook) %>
+            <div id="comments-area"><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div>
+        </div>
     </div>
   </div>
 </section>

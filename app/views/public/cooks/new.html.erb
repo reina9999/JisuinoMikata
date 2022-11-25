@@ -2,16 +2,16 @@
   <div class="row my-5">
     <div class="col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <div style="border: solid thin ">
-      <br>
-      <br>
-      <h3 class="text-center text-secondary mt-2">レシピ投稿 <i class="far fa-edit"></i></h3>
-      <br>
-      <%= render "public/cooks/errors", cook: @cook %>
-      <div class="row">
-        <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto">
-          <%= render "public/cooks/form", cook: @cook, tags: @tags %>
+        <br>
+        <br>
+        <h3 class="text-center text-secondary mt-2">レシピ投稿 <i class="far fa-edit"></i></h3>
+        <br>
+        <%= render "public/cooks/errors", cook: @cook %>
+        <div class="row">
+          <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto">
+            <%= render "public/cooks/form", cook: @cook, tags: @tags %>
+          </div>
         </div>
-      </div>
       </div>
     </div>
   </div>

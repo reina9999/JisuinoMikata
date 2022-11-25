@@ -1,36 +1,36 @@
 <section class="py-5">
-  <div class="container px-4 px-lg-5 my-5">
-    <div class="row gx-4 gx-lg-5 align-items-center">
-      <div class="col-md-6">
-        <%= image_tag @cook.get_image, size: "450x300" %>
+<div class="container px-4 px-lg-5 my-5">
+  <div class="row gx-4 gx-lg-5 align-items-center">
+    <div class="col-md-6">
+      <%= image_tag @cook.get_image, size: "450x300" %>
+      <br>
+      投稿者:<%= link_to @cook.customer.name,admin_customer_path(@cook.customer) %>
+    </div>
+    <div class="col-md-6">
+      <h1 class="display-5 fw-bolder"><%= @cook.name %></h1>
+      <div class="fs-5 mb-5">
+        <span class="text-decoration-line-through">
+        <%= @cook.tag.name unless @cook.tag.nil? %>
         <br>
-        投稿者:<%= link_to @cook.customer.name,admin_customer_path(@cook.customer) %>
+        <%= @cook.required_time %>min
+        </span>
       </div>
-      <div class="col-md-6">
-        <h1 class="display-5 fw-bolder"><%= @cook.name %></h1>
-        <div class="fs-5 mb-5">
-          <span class="text-decoration-line-through">
-          <%= @cook.tag.name unless @cook.tag.nil? %>
-          <br>
-          <%= @cook.required_time %>min
-          </span>
-        </div>
-        <p class="lead">
-          <材料>
-          <br>
-          <%= @cook.foods %>
-          <br>
-          <br>
-          <作り方>
-          <br>
-          <%= @cook.recipe %>
-        </p>
-          <div id="comments-area">
-            <%= render "admin/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %>
-          </div>
+      <p class="lead">
+        <材料>
+        <br>
+        <%= @cook.foods %>
+        <br>
+        <br>
+        <作り方>
+        <br>
+        <%= @cook.recipe %>
+      </p>
+      <div id="comments-area">
+          <%= render "admin/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %>
       </div>
     </div>
   </div>
+</div>
 </section>
 
 

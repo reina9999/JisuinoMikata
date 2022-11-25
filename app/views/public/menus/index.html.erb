@@ -16,18 +16,17 @@
 
       <div class="row">
         <div class="col-sm-12 col-md-11 col-lg-11 px-5 px-sm-0 mx-auto">
-        <h3 class="text-center text-black mt-4">作成メニュー一覧</h3>
-        <div class= "text-left">
-        <ul class="list-group">
-        <% @random_menus.each do |random_menu| %>
-        <u><%= link_to random_menu.title, menu_path(id: random_menu.id),class: 'text-dark' %></u>
-        </ui>
-        <% end %>
-        <br>
+          <h3 class="text-center text-black mt-4">作成メニュー一覧</h3>
+          <div class= "text-left">
+            <ul class="list-group">
+            <% @random_menus.each do |random_menu| %>
+              <u><%= link_to random_menu.title, menu_path(id: random_menu.id),class: 'text-dark' %></u>
+              </ui>
+            <% end %>
+            <br>
+          </div>
         </div>
       </div>
-      </div>
-
     </div>
   </div>
 </div>

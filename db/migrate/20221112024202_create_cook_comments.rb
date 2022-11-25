@@ -4,7 +4,6 @@ class CreateCookComments < ActiveRecord::Migration[6.1]
       t.text :comment
       t.integer :customer_id
       t.integer :cook_id
-
       t.timestamps
     end
   end

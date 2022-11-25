@@ -1,16 +1,12 @@
 <% @cooks.each do |cook| %>
-
   <div class="card-wrapper">
     <div class="card-img">
-    <%= link_to(cook) do %>
-    <%= image_tag cook.get_image, size: "260x200" %>
-    <% end %>
+      <%= link_to(cook) do %>
+        <%= image_tag cook.get_image, size: "260x200" %>
+      <% end %>
     </div>
     <div class="card-box">
-    <h6><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></h6>
-
+      <h6><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></h6>
     </div>
-    </div>
-
-
+  </div>
 <% end %>
