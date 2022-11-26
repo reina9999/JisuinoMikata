@@ -11,7 +11,7 @@
     </div>
     <br>
 
-    <div class="row gx-4 gx-lg-2 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="row row-cols-xl-4 justify-content-center">
       <% @cooks.each_with_index do |cook, index| %>
       <div class="card-wrapper">
         <div class="card-img">
@@ -20,8 +20,8 @@
           <% end %>
         </div>
 
-        <div class="card-box">
-          <h5 class="col-6">
+        <div class="row">
+          <h5 class="col-1">
           <!--indexと連結  -->
           <% case index %>
             <% when 0 then %>
@@ -43,6 +43,7 @@
           <% end %>
           <%= link_to cook.name, cook_path(cook), class: "nav-link text-dark" %>
           </h5>
+          <br>
         </div>
       </div>
       <% end %>
