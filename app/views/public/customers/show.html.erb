@@ -1,21 +1,33 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
-    <h4 class="m-0"><%= current_customer.name %> さんのレシピ一覧
+    <% if customer_signed_in? %>
+      <h3><i class="fas fa-leaf fa-flip-horizontal" style="color:#808D44;" ></i>
+      <%= current_customer.name %>さんのレシピ
+      <i class="fas fa-leaf" style="color:#808D44;" ></i>
+    <% end %>
+
       <%= link_to edit_customer_path(@customer.id), class: "btn btn-outline-secondary" do %>
         <i class="fas fa-user-cog"></i>
       <% end %>
+
       <%= link_to bookmarks_customer_path(current_customer),class: "btn btn-outline-secondary" do %>
-        <i class="fas fa-bookmark text-dark"></i> Bookmark List
+        <i class="fas fa-bookmark text-dark"></i>
       <% end %>
+
       <%= link_to menus_path,class: "btn btn-outline-secondary" do %>
         献立作成
       <% end %>
-    </h4>
+    </h3>
     <br>
+    <br>
+
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
       <% @cooks.each do |cook| %>
         <div class="card-wrapper">
-          <div class="card-img"><%= image_tag cook.get_image, size: "260x200" %>
+          <div class="card-img">
+            <%= link_to(cook) do %>
+            <%= image_tag cook.get_image, size: "260x200" %>
+            <% end %>
           </div>
           <div class="card-box">
             <h6><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></h6>
@@ -23,6 +35,7 @@
         </div>
       <% end %>
     </div>
+
     <div class="col-2 offset-5"><%= paginate @cooks %></div>
   </div>
 </section>

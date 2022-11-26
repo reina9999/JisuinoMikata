@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto">
       <br>
-      <h3>投稿一覧</h3>
+      <h3>レシピ投稿一覧</h3>
       <table class='table table-hover table-inverse'>
         <thead>
         <tr>
@@ -21,10 +21,10 @@
           <td><%= cook.customer.name %></td>
         </tr>
         <% end %>
+        <%= paginate @cooks %>
         </tbody>
        </table>
     </div>
-    <div class="col-2 offset-5"><%= paginate @cooks %></div>
   </div>
 </div>
 

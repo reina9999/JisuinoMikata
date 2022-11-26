@@ -5,23 +5,25 @@
         <br>
         <h3 class="text-center text-secondary mt-2">会員情報編集</h3>
         <br>
+
         <div class="text-center text-secondary">
           <%= form_with model: @customer, url: customer_path(@customer.id), id: "new_customer", class: "new_customer" do |f| %>
             <div class="form-group">
               <%= f.label :name,"名前" %><br />
-              <%= f.text_field :name, placeholder: "自炊花子" %>
+              <%= f.text_field :name, required: true %>
             </div>
             <div class="form-group">
               <%= f.label :email,"メールアドレス" %><br />
-              <%= f.text_field :email,placeholder: "aaaaaa" %>
+              <%= f.text_field :email, required: true %>
             </div>
             <br>
             <div class="form-group">
               <%= f.submit "更新", method: :patch , class: "btn btn-outline-dark" %>
               <%= link_to "退会", customers_confirm_path, class: "btn btn-outline-danger" %>
           <% end %>
-          <%= link_to "戻る", :back, class: "btn btn-outline-secondary" %>
+          <%= link_to "戻る", :back, class: "btn btn-outline-primary" %>
           </div>
+
           <br>
         </div>
       </div>

@@ -5,6 +5,7 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ml-auto">
       <% if customer_signed_in? %>
@@ -20,10 +21,9 @@
 
       <% else %>
 
-      <li><%= link_to "会員登録",new_customer_registration_path,class: 'btn btn-outline-light mr-3'  %></li>
+      <li><%= link_to "Sign up",new_customer_registration_path,class: 'btn btn-outline-light mr-3'  %></li>
       <li><%= link_to "About",homes_about_path,class: 'btn btn-outline-light mr-3'  %></li>
-      <!--<li><%#= link_to "投稿一覧",cooks_path,class: 'nav-link text-dark'  %></li>-->
-      <li><%= link_to "Log in",new_customer_session_path,class: 'btn btn-outline-light mr-3'  %></li>
+      <!--<li><%#= link_to "ログイン",new_customer_session_path,class: 'btn btn-outline-light mr-3'  %></li>-->
       <li><%= link_to 'Guest',customers_guest_sign_in_path,class: "btn btn-outline-light mr-3",method: :post %></li>
       <li><%= link_to 'Admin',new_admin_session_path,class: "btn btn-outline-light mr-3" %></li>
       <% end %>

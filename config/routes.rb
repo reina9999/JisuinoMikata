@@ -17,11 +17,11 @@ Rails.application.routes.draw do
     get "customers/confirm" => "customers#confirm"
     patch "customers/withdraw" => "customers#withdraw"
     get "cook/search" => "searches#search"
-
+    
+    # ネスト
     resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy] do
       resources :bookmarks, only:[:create,:destroy]
       resources :cook_comments, only:[:create,:destroy]
-      # resources :tags, only:[:index,:show,:destroy]
     end
 
     resources :menus, only:[:index,:create,:show,:destroy]

@@ -8,7 +8,7 @@ class Public::SessionsController < Devise::SessionsController
   def guest_sign_in
     customer = Customer.guest
     sign_in customer
-    redirect_to cooks_path,notice: 'ゲストでログインしました。'
+    redirect_to cooks_path,notice: "Guest logged in." #レシピ一覧へ
   end
 
   private

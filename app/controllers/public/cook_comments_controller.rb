@@ -1,4 +1,4 @@
-class Public::CookCommentsController < ApplicationControlle
+class Public::CookCommentsController < ApplicationController
   def create #コメント投稿
     @cook = Cook.find(params[:cook_id])
     comment = current_customer.cook_comments.new(cook_comment_params)

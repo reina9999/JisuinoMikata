@@ -4,11 +4,13 @@
       <div style="border: solid thin ">
         <br>
         <br>
-        <h3 class="text-center text-secondary mt-2">投稿編集 <i class="far fa-edit"></i></h3>
+        <h3 class="text-center text-secondary mt-2">レシピ編集 <i class="far fa-edit"></i></h3>
         <br>
+        <!--エラー文の部分テンプレート-->
         <%= render "public/cooks/errors", cook: @cook %>
         <div class="row">
           <div class="col-sm-12 col-md-11 col-lg-8 px-5 px-sm-0 mx-auto">
+            <!--投稿編集画面の部分テンプレート-->
             <%= render "public/cooks/form", cook: @cook, tags: @tag %>
           </div>
         </div>

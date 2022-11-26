@@ -1,7 +1,7 @@
 class Public::MenusController < ApplicationController
-  def index
+  def index #メニュータイトル入力、メニュー一覧
     @random_menu = RandomMenu.new
-    @random_menus = RandomMenu.where(customer_id: current_customer.id)
+    @random_menus = RandomMenu.where(customer_id: current_customer.id) #複数のidを取得
   end
 
   def create
@@ -32,22 +32,22 @@ class Public::MenusController < ApplicationController
     if @random_menu.save
       redirect_to menu_path(@random_menu)
     else
-      @random_menus = RandomMenu.where(customer_id: current_customer.id)
+      @random_menus = RandomMenu.where(customer_id: current_customer.id) #複数のidを取得
       render :index
     end
   end
 
-  def show
+  def show #ランダムメニュー表示
     @random_menu = RandomMenu.where(id: params[:id])
     @cooks = Cook.where(id:
         @random_menu.pluck(:monday, :tuesday, :wednesday, :thursday, :friday, :saturday, :sunday).first
-    )
+    ) #指定のカラムのみ取得
   end
 
   def destroy
     random_menu = RandomMenu.find(params[:id])
     random_menu.destroy if random_menu.customer_id == current_customer.id
-    redirect_to menus_path
+    redirect_to menus_path #メニュー一覧へ
   end
 
   private

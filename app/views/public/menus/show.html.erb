@@ -2,9 +2,15 @@
   <div class="container px-4 px-lg-5 mt-5">
     <%= link_to '<< 一覧に戻る', menus_path %>
     <div class="row">
-      <h3><strong><%= @random_menu.first.title %></strong></h3>
+      <h2><i class="fas fa-leaf fa-flip-horizontal" style="color:#808D44;" ></i><%= @random_menu.first.title %>
+      <i class="fas fa-leaf" style="color:#808D44;" ></i></h2>
+    </div>
+
+    <div class= "text-right">
+      <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-outline-danger ', method: :delete %>
     </div>
     <br>
+
     <div class="row gx-4 gx-lg-2 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
       <% @cooks.each_with_index do |cook, index| %>
       <div class="card-wrapper">
@@ -16,6 +22,7 @@
 
         <div class="card-box">
           <h5 class="col-6">
+          <!--indexと連結  -->
           <% case index %>
             <% when 0 then %>
               <h4>月</h4>
@@ -34,15 +41,11 @@
           <% else %>
             ERR
           <% end %>
-              <%= link_to cook.name, cook_path(cook), class: "nav-link text-dark" %>
+          <%= link_to cook.name, cook_path(cook), class: "nav-link text-dark" %>
           </h5>
         </div>
       </div>
       <% end %>
-
-      <div class="col">
-        <%= link_to "#{@random_menu.first.title}を消す", menu_path, class: 'btn btn-outline-danger', method: :delete %>
-      </div>
     </div>
   </div>
 </section>

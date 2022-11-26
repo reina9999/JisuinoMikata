@@ -1,12 +1,17 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
-    <h4 class="m-0"><i class="fas fa-bookmark"></i>Bookmark List</h4>
+    <h4 class="m-0"><i class="fas fa-bookmark"></i>ブックマーク</h4>
+    <br>
+    <br>
       <div class="row gx-4 gx-lg-2 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <!--ブックマークが存在した場合表示  -->
       <% if @cooks.present? %>
         <% @cooks.each do |cook| %>
         <div class="card-wrapper">
           <div class="card-img">
-            <%= image_tag cook.get_image, size: "260x200" %>
+            <%= link_to(cook) do %>
+              <%= image_tag cook.get_image, size: "260x200" %>
+            <% end %>
           </div>
           <div class="card-box">
             <h6><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></h6>
@@ -15,6 +20,7 @@
         <% end %>
       <% end %>
       </div>
+
     <div class="col-2 offset-5"><%= paginate @cooks %></div>
   </div>
 </section>

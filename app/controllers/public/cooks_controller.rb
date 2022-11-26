@@ -12,18 +12,18 @@ class Public::CooksController < ApplicationController
     #タグ検索
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
-      @cooks = @cooks.where(tag_id: @tag.id) #
+      @cooks = @cooks.where(tag_id: @tag.id) #複数のidを取得
     end
 
-    @cooks = @cooks.page(params[:page]).per(8)
+    @cooks = @cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
   end
 
-  def show
+  def show #レシピ詳細
     @cook = Cook.find(params[:id])
     @cook_comment = CookComment.new
   end
 
-  def edit
+  def edit #レシピ編集
     @cook = Cook.find(params[:id])
     @tag =  Tag.find(@cook.tag_id)
   end
@@ -32,27 +32,27 @@ class Public::CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
     if @cook.save
-      redirect_to cooks_path,notice: "You have created cook successfully."
+      redirect_to cooks_path,notice: "You have created cook successfully." #レシピ一覧へ
     else
       @cooks = Cook.all
       @tags = Tag.all
-      render 'new'
+      render 'new' #レシピ投稿へ戻る
     end
   end
 
   def update
     @cook = Cook.find(params[:id])
     if @cook.update(cook_params)
-      redirect_to cook_path(@cook)
+      redirect_to cook_path(@cook) #レシピ一覧へ
     else
-      render :edit
+      render :edit #レシピ編集へ戻る
     end
   end
 
   def destroy
     @cook = Cook.find(params[:id])
     @cook.destroy
-    redirect_to cooks_path
+    redirect_to cooks_path #レシピ一覧へ
   end
 
   private

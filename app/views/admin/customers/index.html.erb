@@ -7,7 +7,7 @@
         <thead>
         <tr>
           <th>会員ID</th>
-          <th>氏名</th>
+          <th>会員名</th>
           <th>メールアドレス</th>
           <th>ステータス</th>
         </tr>
@@ -27,9 +27,9 @@
             </td>
           </tr>
         <% end %>
+        <%= paginate @customers %>
         </tbody>
       </table>
     </div>
-    <div class="col-2 offset-5"><%= paginate @customers %></div>
   </div>
 </div>

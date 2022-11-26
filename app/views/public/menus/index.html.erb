@@ -4,19 +4,21 @@
       <br>
       <%= form_with model: @random_menu, url: menus_path, method: :post do |f| %>
       <h3 class="text-center text-black mt-2">
-        <%= f.label :title, 'ランダムメニュータイトル' %>
+        <%= f.label :title, 'メニュータイトル' %>
         <%= f.text_field :title, class: 'form-control w-100', required: true, autocomplete: "off" %>
       </h3>
       <br>
       <div class="form-group text-center">
-        <%= f.submit '生成', class: 'btn btn-outline-info' %>
+        <%= f.submit '作成', class: 'btn btn-outline-secondary' %>
       </div>
       <% end %>
       <br>
 
       <div class="row">
         <div class="col-sm-12 col-md-11 col-lg-11 px-5 px-sm-0 mx-auto">
-          <h3 class="text-center text-black mt-4">作成メニュー一覧</h3>
+          <h3 class="text-center text-black mt-4">
+            <i class="fas fa-leaf fa-flip-horizontal" style="color:#808D44;" ></i>作成メニュー一覧
+            <i class="fas fa-leaf" style="color:#808D44;" ></i></h3>
           <div class= "text-left">
             <ul class="list-group">
             <% @random_menus.each do |random_menu| %>

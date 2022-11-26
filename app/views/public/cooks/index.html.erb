@@ -1,17 +1,27 @@
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
+    <!--ログイン者名を表示-->
     <% if customer_signed_in? %>
-      <h3>Welcome!! <%= current_customer.name %>さん</h3><br>
-      <h4>レシピ一覧</h4>
+      <h2>ようこそ、<%= current_customer.name %>さん</h2><br>
     <% end %>
-    <div class="text-right"><%= render 'public/searches/search', cook: @cooks %>
+
+    <h3><i class="fas fa-leaf fa-flip-horizontal" style="color:#808D44;" ></i>みなさんのレシピ
+    <i class="fas fa-leaf" style="color:#808D44;" ></i></h3>
+
+    <div class="text-right">
+      <!--絞り込み検索の部分テンプレート-->
+      <%= render 'public/searches/search', cook: @cooks %>
       <br>
+      <!--タグ検索の部分テンプレート-->
       <%= render 'public/tags/tag', tags: @tags %>
     </div>
       <br>
+
     <div class="row gx-4 gx-lg-2 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+      <!--レシピ一覧の部分テンプレート-->
       <%= render 'public/cooks/index', cook: @cooks %>
     </div>
+
     <div class="col-2 offset-5"><%= paginate @cooks %></div>
   </div>
 </section>

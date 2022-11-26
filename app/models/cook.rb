@@ -9,8 +9,7 @@ class Cook < ApplicationRecord
   validates :required_time, presence: true
   validates :foods, presence: true
   validates :recipe, presence: true
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
 
   def bookmarked_by?(customer)
     bookmarks.exists?(customer_id: customer.id)
@@ -25,9 +24,9 @@ class Cook < ApplicationRecord
   end
 
   def self.looks(search, word)
-    if search == "perfect_match"
+    if search == "perfect_match" #完全一致
       @cook = Cook.where("name LIKE?","#{word}")
-    elsif search == "partial_match"
+    elsif search == "partial_match" #部分一致
       @cook = Cook.where("name LIKE?","#{word}%")
     else
       @cook = Cook.all

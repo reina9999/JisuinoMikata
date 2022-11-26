@@ -5,34 +5,34 @@
         <br>
         <h3 class="text-center text-secondary mt-2">会員登録</h3>
         <br>
-
+        <!--エラー文の部分テンプレート-->
         <%= render "public/shared/error_messages", resource: resource %>
         <div class="text-center">
           <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
             <div class="field text-secondary">
-              <%= f.label :name %><br />
+              <%= f.label :name,"名前" %><br />
               <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
             </div>
             <div class="field text-secondary">
-              <%= f.label :email %><br />
+              <%= f.label :email,"メールアドレス" %><br />
               <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
             </div>
 
             <div class="field text-secondary">
-              <%= f.label :password %>
+              <%= f.label :password,"パスワード" %>
               <% if @minimum_password_length %>
-                <em>(<%= @minimum_password_length %> characters minimum)</em>
+                <em>(<%= @minimum_password_length %>ケタ以上)</em>
               <% end %><br />
               <%= f.password_field :password, autocomplete: "new-password" %>
             </div>
 
             <div class="field text-secondary">
-              <%= f.label :password_confirmation %><br />
+              <%= f.label :password_confirmation,"パスワード確認" %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
             </div>
             <br>
             <div class="actions">
-              <%= f.submit "Registration",class: "btn btn-outline-dark" %>
+              <%= f.submit "登録",class: "btn btn-outline-secondary" %>
             </div>
           <% end %>
           <%= render "public/shared/links" %>

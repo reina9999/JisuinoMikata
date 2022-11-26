@@ -1,7 +1,9 @@
+<!--ブックマーク登録-->
 <% if cook.bookmarked_by?(current_customer) %>
   <%= link_to cook_bookmark_path(cook.id, current_customer.bookmarks.find_by(cook_id: cook.id).id), method: :delete,remote: true  do %>
   <i class="fas fa-bookmark text-dark"></i>
   <% end %>
+<!--ブックマーク登録解除-->
 <% else %>
   <%= link_to cook_bookmarks_path(cook.id) , method: :post,remote: true do %>
   <i class="far fa-bookmark text-dark"></i>

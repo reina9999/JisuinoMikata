@@ -1,3 +1,4 @@
+ <!--投稿編集をする場合-->
  <% unless params["action"] == "new" or params["action"] == "create" %>
   <%= form_with model: cook, url: cook_path(cook), method: :patch do |f| %>
     <div class="taable table-borderless">
@@ -6,23 +7,26 @@
       <div style="width: 200px">料理名</div>
         <%= f.text_field :name,placeholder: "料理名",class: "w-100" %>
       <div style="width: 200px">調理時間</div>
-        <%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %>
+        <%= f.text_field :required_time,placeholder: "調理時間（分）",class: "w-100" %>
       <div style="width: 200px">材料</div>
-        <%= f.text_area :foods,placeholder: "食材",class: "w-100" %>
+        <%= f.text_area :foods,placeholder: "材料",class: "w-100" %>
       <div style="width: 200px">作り方</div>
         <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
-      <div style="width: 200px">タグ</div>
+      <div style="width: 200px">ジャンル</div>
         <%= f.collection_select(:tag_id, Tag.all, :id, :name, {selected: tags.id}) %>
     </div>
       <br>
+
       <div class="text-center">
+      <!--投稿者のみ更新・削除可能  -->
       <% if @cook.customer == current_customer %>
-        <%= f.submit "Update", class: "btn btn-sm btn-outline-dark" %>
-        <%= link_to "Destroy",cook_path, method: :delete,"data-confirm" => "Are you sure?",class: "btn btn-sm btn-outline-danger" %>
+        <%= f.submit "更新", class: "btn btn-outline-dark" %>
+        <%= link_to "削除",cook_path, method: :delete,"data-confirm" => "Are you sure?",class: "btn btn-outline-danger" %>
       <% end %>
       </div>
   <% end %>
 
+<!--投稿をする場合-->
 <% else %>
   <%= form_with model: @cook,local:true do |f| %>
     <div class="taable table-borderless">
@@ -31,15 +35,16 @@
       <div style="width: 200px">料理名</div>
         <%= f.text_field :name,placeholder: "料理名",class: "w-100" %>
       <div style="width: 200px">調理時間</div>
-        <%= f.text_field :required_time,placeholder: "所要時間（分）",class: "w-100" %>
+        <%= f.text_field :required_time,placeholder: "調理時間（分）",class: "w-100" %>
       <div style="width: 200px">材料</div>
-        <%= f.text_area :foods,placeholder: "食材",class: "w-100" %>
+        <%= f.text_area :foods,placeholder: "材料",class: "w-100" %>
       <div style="width: 200px">作り方</div>
         <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
-      <div style="width: 200px">タグ</div>
+      <div style="width: 200px">ジャンル</div>
         <%= f.select :tag_id,tags.pluck(:name, :id),class: "w-100", include_blank: true %>
     </div>
     <br>
+
     <div class="text-center">
       <%= f.submit "投稿", class: "btn btn-outline-dark" %>
     </div>
