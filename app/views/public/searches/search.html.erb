@@ -4,7 +4,7 @@
     <h3><i class="fas fa-leaf fa-flip-horizontal" style="color:#808D44;" ></i>
       検索結果"<%= @content %>"<i class="fas fa-leaf" style="color:#808D44;" ></i></h3>
     <br>
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+    <div class="row row-cols-xl-4 justify-content-center">
     <!--レシピ一覧の部分テンプレート  -->
     <%= render 'public/cooks/index', cook: @cooks %>
     <%= paginate @cooks %>
