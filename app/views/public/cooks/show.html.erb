@@ -7,6 +7,7 @@
           <%= render "public/bookmarks/bookmarks", cook: @cook %>
         </h4>
 
+        <!--画像認識-->
         <% @cook.cook_tags.each do |tag|%>
           <%= tag.name %>
         <%end%>
