@@ -7,6 +7,10 @@
           <%= render "public/bookmarks/bookmarks", cook: @cook %>
         </h4>
 
+        <% @cook.cook_tags.each do |tag|%>
+          <%= tag.name %>
+        <%end%>
+
         <div class="row justify-content-center radius_test"><%= image_tag @cook.get_image, size: "500x400" %></div>
         投稿者:<%= @cook.customer.name %>
         </div>

@@ -1,6 +1,7 @@
 <% cook.cook_comments.each do |cook_comment| %>
   <div>
     <%= cook_comment.comment %>/<%= cook_comment.created_at.in_time_zone('Asia/Tokyo').strftime("%Y-%m-%d %H:%M:%S") %>
+    <p class="sentiment-score">本文の感情分析スコア[<%= cook_comment.score %>]</p>
     <%= link_to "削除", admin_cook_cook_comment_path(cook_comment.cook, cook_comment), method: :delete,remote: true,class: "text-danger" %>
     投稿者：<%= cook_comment.customer.name %>
   </div>

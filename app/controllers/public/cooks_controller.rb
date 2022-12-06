@@ -9,6 +9,7 @@ class Public::CooksController < ApplicationController
     @cooks = Cook.all
     @tags = Tag.all
 
+
     #タグ検索
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
@@ -32,6 +33,10 @@ class Public::CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
     if @cook.save
+      tags = Vision.get_image_data(@cook.image)
+      tags.each do |tag|
+        @cook.cook_tags.create(name: tag)
+      end
       redirect_to cooks_path,notice: "You have created cook successfully." #レシピ一覧へ
     else
       @cooks = Cook.all
@@ -51,6 +56,7 @@ class Public::CooksController < ApplicationController
 
   def destroy
     @cook = Cook.find(params[:id])
+
     @cook.destroy
     redirect_to cooks_path #レシピ一覧へ
   end

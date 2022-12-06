@@ -3,6 +3,7 @@ class Cook < ApplicationRecord
   belongs_to :customer
   has_many :bookmarks,dependent: :destroy
   has_many :cook_comments, dependent: :destroy
+  has_many :cook_tags, dependent: :destroy
   belongs_to :tag
 
   validates :name, presence: true
