@@ -2,7 +2,7 @@ class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
 
   def index #会員一覧
-    @customers = Customer.all.page(params[:page]).per(10)
+    @customers = Customer.all.order("created_at DESC").page(params[:page]).per(10) #降順に指定
   end
 
   def show #会員詳細
