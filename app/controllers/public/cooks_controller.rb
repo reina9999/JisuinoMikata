@@ -9,7 +9,6 @@ class Public::CooksController < ApplicationController
     @cooks = Cook.all
     @tags = Tag.all
 
-
     #タグ検索
     if params[:tag_id]
       @tag = Tag.find(params[:tag_id])
