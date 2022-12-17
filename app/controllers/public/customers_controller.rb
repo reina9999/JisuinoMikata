@@ -5,6 +5,7 @@ class Public::CustomersController < ApplicationController
     @cook_comment = CookComment.new
     #@cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
 
+    #ソート機能
     if params[:latest]
       @cooks = Cook.latest.page(params[:page]).per(8)
     elsif params[:old]

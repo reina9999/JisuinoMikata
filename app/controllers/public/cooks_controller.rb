@@ -14,9 +14,8 @@ class Public::CooksController < ApplicationController
       @tag = Tag.find(params[:tag_id])
       @cooks = @cooks.where(tag_id: @tag.id) #複数のidを取得
     end
-
-
-
+    
+    #ソート機能
     if params[:latest]
       @cooks = Cook.latest.page(params[:page]).per(8)
     elsif params[:old]
