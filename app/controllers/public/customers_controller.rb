@@ -3,7 +3,17 @@ class Public::CustomersController < ApplicationController
     @customer = Customer.find(params[:id])
     @cook=Cook.new
     @cook_comment = CookComment.new
-    @cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
+    #@cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
+
+    if params[:latest]
+      @cooks = Cook.latest.page(params[:page]).per(8)
+    elsif params[:old]
+      @cooks = Cook.old.page(params[:page]).per(8)
+    elsif params[:star_count]
+      @cooks = Cook.star_count.page(params[:page]).per(8)
+    else
+      @cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
+    end
   end
 
   def edit #会員情報編集
@@ -33,7 +43,17 @@ class Public::CustomersController < ApplicationController
 
   def bookmarks
     bookmarkIds = current_customer.bookmarks.pluck(:cook_id)
-    @cooks = Cook.where(id: bookmarkIds).order("created_at DESC").page(params[:page]).per(8) #降順に指定
+    #@cooks = Cook.where(id: bookmarkIds).order("created_at DESC").page(params[:page]).per(8) #降順に指定
+
+    if params[:latest]
+      @cooks = Cook.latest.page(params[:page]).per(8)
+    elsif params[:old]
+      @cooks = Cook.old.page(params[:page]).per(8)
+    elsif params[:star_count]
+      @cooks = Cook.star_count.page(params[:page]).per(8)
+    else
+      @cooks = Cook.where(id: bookmarkIds).order("created_at DESC").page(params[:page]).per(8) #降順に指定
+    end
   end
 
   private

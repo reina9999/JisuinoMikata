@@ -15,7 +15,19 @@ class Public::CooksController < ApplicationController
       @cooks = @cooks.where(tag_id: @tag.id) #複数のidを取得
     end
 
-    @cooks = @cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
+
+
+    if params[:latest]
+      @cooks = Cook.latest.page(params[:page]).per(8)
+    elsif params[:old]
+      @cooks = Cook.old.page(params[:page]).per(8)
+    elsif params[:star_count]
+      @cooks = Cook.star_count.page(params[:page]).per(8)
+    else
+      @cooks = @cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
+    end
+
+
   end
 
   def show #レシピ詳細
@@ -64,6 +76,6 @@ class Public::CooksController < ApplicationController
   def cook_params
     params.require(:cook).permit(:image, :name, :required_time, :foods, :recipe, :tag_id, :rate) #タグidも追記
   end
-  
+
 end
 

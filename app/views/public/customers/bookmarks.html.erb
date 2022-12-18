@@ -2,7 +2,10 @@
   <div class="container px-4 px-lg-5 mt-5">
     <h4 class="m-0">
       <i class="fas fa-bookmark"></i>ブックマーク</h4>
-    <br>
+      <br>
+    <%= link_to '新しい順', bookmarks_customer_path(latest: "true") %>
+    <%= link_to '古い順', bookmarks_customer_path(old: "true") %>
+    <%= link_to '評価の高い順', bookmarks_customer_path(star_count: "true") %>
     <br>
       <div class="row  row-cols-xl-4 justify-content-center">
       <!--ブックマークが存在した場合表示  -->
@@ -16,6 +19,8 @@
           </div>
           <div class="card-box">
             <h6><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></h6>
+            <div cook-rate-<%=cook.id%> data-score="<%= cook.rate %>"></div>
+            <br>
           </div>
         </div>
         <% end %>
@@ -25,4 +30,22 @@
     <div class="col-2 offset-5"><%= paginate @cooks %></div>
   </div>
 </section>
+
+<script>
+  var options = {
+      readOnly: true,
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      score: function() {
+          return $(this).attr('data-score');
+      }
+  }
+  <% @cooks.each do |cook| %>
+  var element_<%=cook.id%> = document.querySelector("[cook-rate-<%=cook.id%>]");
+  raty(element_<%=cook.id%>, options);
+  <% end %>
+</script>
+
 

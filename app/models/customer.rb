@@ -9,6 +9,10 @@ class Customer < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  scope :star_count, -> {order(rate: :desc)}
+
     # is_deletedがfalseならtrueを返すようにしている
   def active_for_authentication?
     super && (is_deleted == false)

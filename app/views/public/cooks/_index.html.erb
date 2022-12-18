@@ -8,6 +8,7 @@
     <div class="card-box">
       <h6><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></h6>
       <div cook-rate-<%=cook.id%> data-score="<%= cook.rate %>"></div>
+      <br>
     </div>
   </div>
 <% end %>
@@ -27,13 +28,4 @@
   var element_<%=cook.id%> = document.querySelector("[cook-rate-<%=cook.id%>]");
   raty(element_<%=cook.id%>, options);
   <% end %>
-/*
-  $('.cook-rate').raty({
-    readOnly: true,
-    score: function() {
-      return $(this).attr('data-score');
-    },
-    path: '/assets/'
-  });
-*/
 </script>

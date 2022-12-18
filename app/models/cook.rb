@@ -11,6 +11,10 @@ class Cook < ApplicationRecord
   validates :foods, presence: true
   validates :recipe, presence: true
 
+  scope :latest, -> {order(created_at: :desc)}
+  scope :old, -> {order(created_at: :asc)}
+  scope :star_count, -> {order(rate: :desc)}
+
 
   def bookmarked_by?(customer)
     bookmarks.exists?(customer_id: customer.id)
