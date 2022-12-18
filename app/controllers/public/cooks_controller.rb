@@ -26,8 +26,6 @@ class Public::CooksController < ApplicationController
     else
       @cooks = @cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
     end
-
-
   end
 
   def show #レシピ詳細
