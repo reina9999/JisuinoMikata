@@ -62,7 +62,8 @@ class Public::CooksController < ApplicationController
 
   private
   def cook_params
-    params.require(:cook).permit(:image, :name, :required_time, :foods, :recipe, :tag_id) #タグidも追記
+    params.require(:cook).permit(:image, :name, :required_time, :foods, :recipe, :tag_id, :rate) #タグidも追記
   end
+  
 end
 

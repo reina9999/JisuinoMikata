@@ -7,6 +7,33 @@
     </div>
     <div class="card-box">
       <h6><%= link_to cook.name, cook_path(cook.id),class: 'nav-link text-dark' %></h6>
+      <div cook-rate-<%=cook.id%> data-score="<%= cook.rate %>"></div>
     </div>
   </div>
 <% end %>
+
+<script>
+  var options = {
+      readOnly: true,
+      size     : 36,
+      starOff:  '<%= asset_path('star-off.png') %>',
+      starOn : '<%= asset_path('star-on.png') %>',
+      starHalf: '<%= asset_path('star-half.png') %>',
+      score: function() {
+          return $(this).attr('data-score');
+      }
+  }
+  <% @cooks.each do |cook| %>
+  var element_<%=cook.id%> = document.querySelector("[cook-rate-<%=cook.id%>]");
+  raty(element_<%=cook.id%>, options);
+  <% end %>
+/*
+  $('.cook-rate').raty({
+    readOnly: true,
+    score: function() {
+      return $(this).attr('data-score');
+    },
+    path: '/assets/'
+  });
+*/
+</script>

@@ -14,6 +14,14 @@
         <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
       <div style="width: 200px">ジャンル</div>
         <%= f.collection_select(:tag_id, Tag.all, :id, :name, {selected: tags.id}) %>
+
+         <!--評価-->
+      <div class="form-group row">
+      <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+        <div class="col-md-8 position-static" id="star"></div>
+      </div>
+
+
     </div>
       <br>
 
@@ -42,6 +50,14 @@
         <%= f.text_area :recipe,placeholder: "調理法",class: "w-100" %>
       <div style="width: 200px">ジャンル</div>
         <%= f.select :tag_id,tags.pluck(:name, :id),class: "w-100", include_blank: true %>
+
+          <!--評価-->
+      <div class="form-group row">
+      <%= f.label :rate,'評価 ', class:'col-md-3 col-form-label' %>
+        <div class="col-md-8 position-static" id="star"></div>
+      </div>
+
+
     </div>
     <br>
 
@@ -53,4 +69,20 @@
 <br>
 <br>
 
-
+<!-- 評価javascript -->
+<script>
+  var element = document.querySelector('#star');
+  var option = {
+    size     : 36,
+    starOff:  '<%= asset_path('star-off.png') %>',
+    starOn : '<%= asset_path('star-on.png') %>',
+    starHalf: '<%= asset_path('star-half.png') %>',
+    scoreName: 'cook[rate]',
+    //half: true,
+    //number: 5,
+    //precision: true
+    //targetType: 'score number',
+    //targetText:	''
+  };
+  raty(element, option);
+</script>
