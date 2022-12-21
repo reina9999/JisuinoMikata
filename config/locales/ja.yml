@@ -1,4 +1,23 @@
 ja:
+  activerecord:
+    errors:
+      models:
+        customer:
+          attributes:
+            name:
+              blank: を入力してください。
+            email:
+              blank: を入力してください。
+            password:
+              blank: を入力してください。
+
+    attributes:
+      customer:
+        name: 名前
+        email: メールアドレス
+        password: パスワード
+
+
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

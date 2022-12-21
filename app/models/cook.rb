@@ -7,7 +7,7 @@ class Cook < ApplicationRecord
   belongs_to :tag
 
   validates :name, presence: true
-  validates :required_time, presence: true
+  validates :required_time, presence: true, numericality: true
   validates :foods, presence: true
   validates :recipe, presence: true
 

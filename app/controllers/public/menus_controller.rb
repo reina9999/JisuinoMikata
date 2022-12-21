@@ -2,6 +2,7 @@ class Public::MenusController < ApplicationController
   def index #メニュータイトル入力、メニュー一覧
     @random_menu = RandomMenu.new
     @random_menus = RandomMenu.where(customer_id: current_customer.id) #複数のidを取得
+    @random_menus = current_customer.random_menus
   end
 
   def create

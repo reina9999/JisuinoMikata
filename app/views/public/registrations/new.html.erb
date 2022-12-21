@@ -11,11 +11,11 @@
           <%= form_with model: @customer, url: customer_registration_path, id: 'new_customer', class: 'new_customer' do |f| %>
             <div class="field text-secondary">
               <%= f.label :name,"名前" %><br />
-              <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+              <%= f.text_field :name, autofocus: true, autocomplete: "name", required: true %>
             </div>
             <div class="field text-secondary">
               <%= f.label :email,"メールアドレス" %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", required: true %>
             </div>
 
             <div class="field text-secondary">
@@ -23,12 +23,12 @@
               <% if @minimum_password_length %>
                 <em>(<%= @minimum_password_length %>ケタ以上)</em>
               <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password" %>
+              <%= f.password_field :password, autocomplete: "new-password", required: true %>
             </div>
 
             <div class="field text-secondary">
               <%= f.label :password_confirmation,"パスワード確認" %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", required: true %>
             </div>
             <br>
             <div class="actions">

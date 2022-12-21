@@ -1,4 +1,5 @@
 class Public::CustomersController < ApplicationController
+  # before_action :customer, only: [:edit, :update, :destroy]
   def show #マイページ
     @customer = Customer.find(params[:id])
     @cook=Cook.new
@@ -7,11 +8,11 @@ class Public::CustomersController < ApplicationController
 
     #ソート機能
     if params[:latest]
-      @cooks = Cook.latest.page(params[:page]).per(8)
+      @cooks = @customer.cooks.latest.page(params[:page]).per(8)
     elsif params[:old]
-      @cooks = Cook.old.page(params[:page]).per(8)
+      @cooks = @customer.cooks.old.page(params[:page]).per(8)
     elsif params[:star_count]
-      @cooks = Cook.star_count.page(params[:page]).per(8)
+      @cooks = @customer.cooks.star_count.page(params[:page]).per(8)
     else
       @cooks = @customer.cooks.order("created_at DESC").page(params[:page]).per(8) #降順に指定
     end
@@ -47,11 +48,11 @@ class Public::CustomersController < ApplicationController
     #@cooks = Cook.where(id: bookmarkIds).order("created_at DESC").page(params[:page]).per(8) #降順に指定
 
     if params[:latest]
-      @cooks = Cook.latest.page(params[:page]).per(8)
+      @cooks = Cook.where(id: bookmarkIds).latest.page(params[:page]).per(8)
     elsif params[:old]
-      @cooks = Cook.old.page(params[:page]).per(8)
+      @cooks = Cook.where(id: bookmarkIds).old.page(params[:page]).per(8)
     elsif params[:star_count]
-      @cooks = Cook.star_count.page(params[:page]).per(8)
+      @cooks = Cook.where(id: bookmarkIds).star_count.page(params[:page]).per(8)
     else
       @cooks = Cook.where(id: bookmarkIds).order("created_at DESC").page(params[:page]).per(8) #降順に指定
     end

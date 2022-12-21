@@ -13,7 +13,7 @@
         <%end%>
 
         <div class="row justify-content-center radius_test"><%= image_tag @cook.get_image, size: "500x400" %></div>
-        投稿者:<%= @cook.customer.name %>
+        投稿者:<%= @cook.customer.name %>/投稿日時：<%= @cook.created_at.in_time_zone('Asia/Tokyo').strftime("%Y-%m-%d %H:%M:%S") %>
         <div cook-rate data-score="<%= @cook.rate %>"></div>
         </div>
 
@@ -50,7 +50,9 @@
             <br>
             <%=safe_join(@cook.recipe.split("\n"),tag(:br))%>
           </p>
+            <% if @cook.customer == current_customer %>
             <%= link_to "レシピを編集する", edit_cook_path(@cook) %>
+            <% end %>
             <!--コメント表示の部分テンプレート-->
             <div id="comments-area"><%= render "public/cook_comments/comment",cook: @cook,cook_comment: @cook_comment %></div>
         </div>

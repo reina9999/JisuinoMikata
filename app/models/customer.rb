@@ -2,6 +2,7 @@ class Customer < ApplicationRecord
   has_many :cooks
   has_many :bookmarks,dependent: :destroy
   has_many :cook_comments, dependent: :destroy
+  has_many :random_menus
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
