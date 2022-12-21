@@ -20,7 +20,7 @@ class Public::CustomersController < ApplicationController
 
   def edit #会員情報編集
     @customer = Customer.find(params[:id])
-    unless @customer.email == "guest@example.com" #ゲストは編集できない
+    if @customer.email != "guest@example.com" && @customer == current_customer  #ゲストユーザじゃなくて会員であった場合
       @customer = Customer.find(params[:id])
     else
       redirect_to customer_path(@customer.id) #マイページへ

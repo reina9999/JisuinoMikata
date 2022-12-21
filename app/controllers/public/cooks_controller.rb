@@ -1,7 +1,7 @@
 class Public::CooksController < ApplicationController
   before_action :authenticate_customer!
   def new #レシピ投稿
-    @cook = Cook.new
+    @cook = Cook.new(rate: 0)
     @tags = Tag.all
   end
 
@@ -14,7 +14,7 @@ class Public::CooksController < ApplicationController
       @tag = Tag.find(params[:tag_id])
       @cooks = @cooks.where(tag_id: @tag.id) #複数のidを取得
     end
-    
+
     #ソート機能
     if params[:latest]
       @cooks = Cook.latest.page(params[:page]).per(8)
@@ -41,9 +41,11 @@ class Public::CooksController < ApplicationController
     @cook = Cook.new(cook_params)
     @cook.customer_id = current_customer.id
     if @cook.save
-      tags = Vision.get_image_data(@cook.image)
-      tags.each do |tag|
-        @cook.cook_tags.create(name: tag)
+      if @cook.image.attached?
+        tags = Vision.get_image_data(@cook.image)
+        tags.each do |tag|
+          @cook.cook_tags.create(name: tag)
+        end
       end
       redirect_to cooks_path,notice: "You have created cook successfully." #レシピ一覧へ
     else

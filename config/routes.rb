@@ -14,10 +14,8 @@ Rails.application.routes.draw do
   scope module: :public do
     root :to  => "homes#top"
     get "homes/about" => "homes#about"
-    get "customers/confirm" => "customers#confirm"
-    patch "customers/withdraw" => "customers#withdraw"
     get "cook/search" => "searches#search"
-    
+
     # ネスト
     resources :cooks, only:[:index,:show,:edit,:new,:create,:update,:destroy] do
       resources :bookmarks, only:[:create,:destroy]
@@ -27,6 +25,10 @@ Rails.application.routes.draw do
     resources :menus, only:[:index,:create,:show,:destroy]
     resources :searches, only:[:search]
     resources :customers, only:[:show,:edit,:update] do
+      collection do
+        get :confirm
+        patch :withdraw
+      end
       member do
         get :bookmarks
       end

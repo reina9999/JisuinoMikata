@@ -559,14 +559,26 @@ class Raty {
     let score = parseInt(icon.alt || icon.getAttribute('data-alt'), 10);
 
     if (this.opt.half) {
-      const size = this._getWidth();
-      const percent = parseFloat((evt.pageX - icon.offsetLeft) / size);
+//      const size = this._getWidth();
+//      const percent = parseFloat((evt.pageX - icon.offsetLeft) / size);
+//　上記2行をコメントアウト
+//  以下を追加
+        const size = this._getWidth();
+        const rect = icon.getBoundingClientRect();
+        const elemleft = rect.left + window.pageXOffset;
+        const percent = parseFloat((evt.pageX - elemleft) / size);
+        //console.log(size);
+        //console.log(evt.pageX);
+        //console.log(elemleft);
+        //console.log(percent);
+// ここまで追加
+        score = score - 1 + percent;
 
-      score = score - 1 + percent;
     }
 
     return score;
   }
+
 
   // TODO: model spec
   _getHint(score, evt) {

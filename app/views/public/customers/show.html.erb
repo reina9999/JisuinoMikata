@@ -55,6 +55,7 @@
   }
   <% @cooks.each do |cook| %>
   var element_<%=cook.id%> = document.querySelector("[cook-rate-<%=cook.id%>]");
+  element_<%=cook.id%>.innerHTML = '';
   raty(element_<%=cook.id%>, options);
   <% end %>
 </script>

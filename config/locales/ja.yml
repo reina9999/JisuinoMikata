@@ -10,14 +10,37 @@ ja:
               blank: を入力してください。
             password:
               blank: を入力してください。
-
+              too_short: ６文字以上を入力してください。
+            password_confirmation:
+              confirmation: 確認用パスワードを確認してください。
+        cook:
+          attributes:
+            tag:
+              required: 選択してください。
+            name:
+              blank: を入力してください。
+            required_time:
+              blank: を入力してください。
+              not_a_number: 数値で入力してください。
+            foods:
+              blank: を入力してください。
+            recipe:
+              blank: を入力してください。
     attributes:
       customer:
         name: 名前
         email: メールアドレス
         password: パスワード
-
-
+        password_confirmation: 確認用パスワード
+      cook:
+        tag: ジャンル
+        name: 料理名
+        required_time: 調理時間
+        foods: 材料
+        recipe: 作り方
+  errors:
+    messages:
+      not_saved: 登録できません。
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>
