@@ -78,7 +78,7 @@
     starOn : '<%= asset_path('star-on.png') %>',
     starHalf: '<%= asset_path('star-half.png') %>',
     scoreName: 'cook[rate]',
-    score: <%= @cook.rate %>,
+    score: <%= @cook.rate || 0 %>,
     half: true
   };
   raty(element, option);

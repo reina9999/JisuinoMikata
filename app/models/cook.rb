@@ -32,7 +32,7 @@ class Cook < ApplicationRecord
     if search == "perfect_match" #完全一致
       @cook = Cook.where("name LIKE?","#{word}")
     elsif search == "partial_match" #部分一致
-      @cook = Cook.where("name LIKE?","#{word}%")
+      @cook = Cook.where("name LIKE?","%#{word}%")
     else
       @cook = Cook.all
     end
