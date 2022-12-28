@@ -15,7 +15,6 @@ class Cook < ApplicationRecord
   scope :old, -> {order(created_at: :asc)}
   scope :star_count, -> {order(rate: :desc)}
 
-
   def bookmarked_by?(customer)
     bookmarks.exists?(customer_id: customer.id)
   end
