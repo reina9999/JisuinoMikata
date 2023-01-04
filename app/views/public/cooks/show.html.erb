@@ -16,7 +16,8 @@
         投稿者:<%= @cook.customer.name %>/投稿日時：<%= @cook.created_at.in_time_zone('Asia/Tokyo').strftime("%Y-%m-%d %H:%M:%S") %>
         <div cook-rate data-score="<%= @cook.rate %>"></div>
         </div>
-
+        
+        <!--<評価>-->
         <script>
           var options = {
               readOnly: true,
