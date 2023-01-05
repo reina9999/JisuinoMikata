@@ -10,6 +10,7 @@
   </div>
   <br>
 <% end %>
+
 <%= form_with(model: [cook, cook_comment], local: false) do |f| %>
   <%= f.text_area :comment, rows: '5', required: true, placeholder: "コメント記入欄"%>
   <%= f.submit "送信",class: "btn btn-outline-dark btn-sm" %>
