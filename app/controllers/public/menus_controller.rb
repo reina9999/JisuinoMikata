@@ -20,6 +20,7 @@ class Public::MenusController < ApplicationController
       return
     end
 
+    # ランダム機能
     @random_menu = RandomMenu.new(random_menu_params)
     @random_menu.customer_id = current_customer.id
     @random_menu.monday = @cooks[0].id
