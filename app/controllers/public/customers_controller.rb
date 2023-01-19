@@ -36,7 +36,7 @@ class Public::CustomersController < ApplicationController
     end
   end
 
-  def withdraw
+  def withdraw　#会員無効
     # is_deletedカラムをtrueに変更することにより削除フラグを立てる
     current_customer.update(is_deleted: true)
     reset_session
