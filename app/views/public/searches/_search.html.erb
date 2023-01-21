@@ -1,9 +1,9 @@
 <div class="search_form">
   <%= form_with url: cook_search_path, local: true, method: :get do |f| %>
     <!--検索内容を、wordとしてアクションに送る-->
-    <%= f.text_field :word, required: true, placeholder: "search" %>
+    料理名 <%= f.text_field :word, required: true, placeholder: "search" %>
     <!--選択したモデルをrangeとしてアクションに送る-->
-    <%= f.select :range, options_for_select(['Cook']) %>
+    <%#= f.select :range, options_for_select(['料理名']) %>
     <!--選択した検索手法をsearchとしてアクションに送る-->
     <%= f.select :search, options_for_select([["完全一致","perfect_match"],["部分一致","partial_match"]]) %>
     <button type="submit" class="btn btn-outline-dark btn-sm">

@@ -47,7 +47,7 @@
       <div style="width: 200px">材料</div>
         <%= f.text_area :foods,placeholder: "(例)玉ねぎ 3個",class: "w-100" %>
       <div style="width: 200px">作り方</div>
-        <%= f.text_area :recipe,placeholder: "(例)玉ねぎは皮をむいて半分に切った後、1cm幅に切っておきます。",class: "w-100" %>
+        <%= f.text_area :recipe,placeholder: "(例)①玉ねぎは皮をむいて半分に切った後、1cm幅に切っておきます。",class: "w-100" %>
       <div style="width: 200px">ジャンル</div>
         <%= f.select :tag_id,tags.pluck(:name, :id),class: "w-100", include_blank: true %> 選択してください
       <br>
