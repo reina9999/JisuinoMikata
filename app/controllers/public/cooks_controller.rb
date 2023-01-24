@@ -6,6 +6,14 @@ class Public::CooksController < ApplicationController
   end
 
   def index #レシピ一覧
+    @genres = Genre.where(is_active: true)
+    if params[:genre_id]
+		  @genre = Genre.find(params[:genre_id])
+		  @cooks = @genre.cooks.where(is_active: true).page(params[:page])
+    else
+      @cooks = Cook.where(is_active: true).page(params[:page])
+    end
+
     @cooks = Cook.all
     @tags = Tag.all
 

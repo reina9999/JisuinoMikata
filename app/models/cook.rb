@@ -5,6 +5,7 @@ class Cook < ApplicationRecord
   has_many :cook_comments, dependent: :destroy
   has_many :cook_tags, dependent: :destroy
   belongs_to :tag
+  belongs_to :genre
 
   validates :name, presence: true
   validates :required_time, presence: true, numericality: true

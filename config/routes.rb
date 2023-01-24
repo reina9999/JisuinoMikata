@@ -37,11 +37,12 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root :to => "homes#top"
-    resources :cooks,only:[:show,:edit,:update,:destroy] do
+    resources :cooks,only:[:show,:update,:destroy] do
       resources :cook_comments, only:[:destroy]
     end
     resources :customers, only:[:index,:show,:edit,:update]
     resources :genres, only:[:index,:create,:edit,:update]
+    resources :tags,only:[:index,:edit,:create,:update,:destroy]
   end
 
   devise_scope :customer do

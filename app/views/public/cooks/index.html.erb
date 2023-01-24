@@ -12,6 +12,12 @@
     /<%= link_to '古い順', cooks_path(old: "true") %>
     /<%= link_to '評価の高い順', cooks_path(star_count: "true") %>
 
+      <% if params[:genre_id] %>
+        <%= @genre.name %>
+      <% else %>
+        すべての商品
+      <% end %>
+
     <div class="text-right">
       <!--絞り込み検索の部分テンプレート-->
       <%= render 'public/searches/search', cook: @cooks %>
