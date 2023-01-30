@@ -1,3 +1,4 @@
+<!--管理者側で投稿タグを追加-->
 <h3>タグ一覧・追加</h3>
 <%= form_with model: @tag,url: admin_tags_path, method: :post do |f| %>
   <td><%= f.label :"タグ名", class: "mr-3" %></td>
